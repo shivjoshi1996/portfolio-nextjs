@@ -1,16 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import {groq} from 'next-sanity'
-import {usePreviewSubscription, urlFor, PortableText} from '../lib/sanity'
-import {getClient} from '../lib/sanity.server'
+import Head from 'next/head';
+import Image from 'next/image';
+import { groq } from 'next-sanity';
+import styles from '../styles/Home.module.css';
+import { usePreviewSubscription, urlFor, PortableText } from '../lib/sanity';
+import { getClient } from '../lib/sanity.server';
 
 const postQuery = groq`
   *[_type == "post"]{
     title,
   }
-`
-
+`;
 
 export default function Home(props) {
   console.log(props);
@@ -76,17 +75,16 @@ export default function Home(props) {
         </a>
       </footer>
     </div>
-  )
+  );
 }
 
-
-export async function getStaticProps({params, preview = false}) {
-  const post = await getClient(preview).fetch(postQuery)
+export async function getStaticProps({ params, preview = false }) {
+  const post = await getClient(preview).fetch(postQuery);
 
   return {
     props: {
       preview,
-      data: {post},
+      data: { post },
     },
-  }
+  };
 }
