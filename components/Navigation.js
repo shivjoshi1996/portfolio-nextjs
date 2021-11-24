@@ -23,9 +23,6 @@ const NavigationContentWrapper = styled.ul`
 `;
 
 export default function Navigation({ nav }) {
-  console.log(nav[0].title);
-
-  console.log(nav[0].navItems);
   return (
     <NavigationWrapper>
       <NavigationContentWrapper>
