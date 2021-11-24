@@ -26,7 +26,7 @@ export default function Navigation({ nav }) {
   return (
     <NavigationWrapper>
       <NavigationContentWrapper>
-        <p>{nav[0].title}</p>
+        <Link href="/">{nav[0].title}</Link>
         {nav[0].navItems.map((item) => (
           <li key={item.text}>
             <Link href={`${item?.navItemUrl?.linkUrl}`}>{item.text}</Link>

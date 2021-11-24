@@ -6,6 +6,7 @@ export default function Contact({ data }) {
   return (
     <>
       <Navigation nav={data.nav} />
+      <p>Contact Page</p>
     </>
   );
 }
