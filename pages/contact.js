@@ -1,13 +1,11 @@
 import { groq } from 'next-sanity';
-import Navigation from '../../components/Navigation';
-import { getClient } from '../../lib/sanity.server';
+import Navigation from '../components/Navigation';
+import { getClient } from '../lib/sanity.server';
 
-export default function Projects({ data }) {
+export default function Contact({ data }) {
   return (
     <>
       <Navigation nav={data.nav} />
-      <h1>Projects</h1>
-      <p>Yo</p>
     </>
   );
 }

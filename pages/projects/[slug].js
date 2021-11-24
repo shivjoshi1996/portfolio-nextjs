@@ -3,6 +3,7 @@ import { groq } from 'next-sanity';
 
 import { usePreviewSubscription } from '../../lib/sanity';
 import { getClient } from '../../lib/sanity.server';
+import Navigation from '../../components/Navigation';
 
 /**
  * Helper function to return the correct version of the document
@@ -43,7 +44,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
+  // Navigation Query
+  const NavQuery = groq`
+  *[_type == "navigation" && id == "mainNav"]{
+    title,
+    navItems,
+  }
+`;
+
+  const nav = await getClient(preview).fetch(NavQuery);
+
+  // Page Query
   const query = groq`*[_type == "project" && slug.current == $slug]`;
+
   const queryParams = { slug: params.slug };
   const data = await getClient(preview).fetch(query, queryParams);
 
@@ -58,7 +71,7 @@ export async function getStaticProps({ params, preview = false }) {
       // Pass down the "preview mode" boolean to the client-side
       preview,
       // Pass down the initial content, and our query
-      data: { page, query, queryParams },
+      data: { page, query, queryParams, nav },
     },
   };
 }
@@ -75,15 +88,17 @@ export default function Page({ data, preview }) {
 
   // Client-side uses the same query, so we may need to filter it down again
   const page = filterDataToSingleItem(previewData, preview);
-  console.log(page);
 
   // Notice the optional?.chaining conditionals wrapping every piece of content?
   // This is extremely important as you can't ever rely on a single field
   // of data existing when Editors are creating new documents.
   // It'll be completely blank when they start!
   return (
-    <div style={{ maxWidth: `20rem`, padding: `1rem` }}>
-      {page?.title && <h1>{page.title}</h1>}
-    </div>
+    <>
+      <Navigation nav={data.nav} />
+      <div style={{ maxWidth: `20rem`, padding: `1rem` }}>
+        {page?.title && <h1>{page.title}</h1>}
+      </div>
+    </>
   );
 }

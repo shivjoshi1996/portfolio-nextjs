@@ -1,14 +1,5 @@
 import Head from 'next/head';
-import { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../styles/GlobalStyles';
-
-const appTheme = {
-  colors: {
-    background: '#1d1d1d;',
-    textPrimary: '#ddd;',
-  },
-  font: `'Archivo', sans-serif`,
-};
+import Page from '../components/Page';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -21,10 +12,9 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <ThemeProvider theme={appTheme}>
-        <GlobalStyles />
+      <Page>
         <Component {...pageProps} />
-      </ThemeProvider>
+      </Page>
     </>
   );
 }
