@@ -4,14 +4,8 @@ import GlobalStyles from '../styles/GlobalStyles';
 
 const appTheme = {
   colors: {
-    primary1: '#014E56',
-    primary2: '#F67E7E',
-    primary3: '#FFFFFF',
-    secondary1: '#79C8C7',
-    secondary2: '#2C6269',
-    secondary3: '#004047',
-    secondary4: '#012F34',
-    secondary5: '#002529',
+    background: '#1d1d1d;',
+    textPrimary: '#ddd;',
   },
   font: `'Archivo', sans-serif`,
 };
