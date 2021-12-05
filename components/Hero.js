@@ -1,8 +1,45 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { usePreviewSubscription, urlFor, PortableText } from '../lib/sanity';
+
+const StyledHeroWrapper = styled.div`
+  background-color: ${(props) => props.theme.colors.background};
+`;
 
 const StyledHero = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+`;
+
+const StyledHeroText = styled.div`
+  flex: 1;
+  color: ${(props) => props.theme.colors.textPrimary};
+  h2 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.textPrimary};
+    padding: 5px;
+    border: 2px solid ${(props) => props.theme.colors.textPrimary};
+  }
+`;
+
+const StyledHeroImage = styled.div`
+  flex: 1;
+`;
+
+const StyledHeroButtons = styled.div`
+  display: flex;
+  gap: 5px;
 `;
 
 export default function Hero({
@@ -12,22 +49,35 @@ export default function Hero({
   heroImage,
 }) {
   return (
-    <>
+    <StyledHeroWrapper>
       <StyledHero>
-        <h1>{heroHeading}</h1>
-        <p>{heroText}</p>
-        {/* <Image
-      src={urlFor(data.home[0].heroImage).width(600).url()}
-      width="600"
-      height="400"
-      quality={100}
-    /> */}
-        {heroButtons.map((button) => (
-          <Link key={button._key} href={button.navItemUrl.linkUrl}>
-            {button.text}
-          </Link>
-        ))}
+        <StyledHeroText>
+          <h2>{heroHeading}</h2>
+          <p>{heroText}</p>
+          <StyledHeroButtons>
+            {heroButtons.map((button) => (
+              <Link key={button._key} href={button.navItemUrl.linkUrl}>
+                {button.text}
+              </Link>
+            ))}
+          </StyledHeroButtons>
+        </StyledHeroText>
+        <StyledHeroImage>
+          <img
+            src={urlFor(heroImage).width(600).url()}
+            width="600"
+            height="400"
+            quality={100}
+          />
+        </StyledHeroImage>
       </StyledHero>
-    </>
+    </StyledHeroWrapper>
   );
 }
+
+Hero.propTypes = {
+  heroHeading: PropTypes.string,
+  heroText: PropTypes.string,
+  heroButtons: PropTypes.array,
+  heroImage: PropTypes.object,
+};
