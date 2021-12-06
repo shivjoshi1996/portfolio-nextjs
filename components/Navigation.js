@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const NavigationContainer = styled.nav`
@@ -39,9 +40,18 @@ const NavigationHamburger = styled.div`
   }
   svg {
     fill: ${(props) => props.theme.colors.textPrimary};
+    #rect1,
     #rect2,
     #rect3 {
       transition: 0.5s;
+    }
+    #rect1 {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    #rect3 {
+      transform-box: fill-box;
+      transform-origin: center;
     }
   }
 `;
@@ -62,6 +72,12 @@ const NavigationContentWrapper = styled.ul`
 `;
 
 export default function Navigation({ nav }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <NavigationContainer>
       <MobileNavigationContainer>
@@ -69,11 +85,29 @@ export default function Navigation({ nav }) {
           <Link href="/">{nav[0].title}</Link>
         </NavigationLogo>
         <NavigationHamburger>
-          <button type="button">
+          <button type="button" onClick={handleHamburgerClick}>
             <svg viewBox="0 0 100 80" width="100" height="30">
-              <rect id="rect1" width="100" height="10" />
-              <rect id="rect2" y="30" width="55" height="10" />
-              <rect id="rect3" y="60" width="30" height="10" />
+              <rect
+                id="rect1"
+                width="100"
+                height="10"
+                y={isOpen ? '30' : '0'}
+                transform={isOpen ? 'rotate(45)' : null}
+              />
+              <rect
+                id="rect2"
+                y="30"
+                width="55"
+                height="10"
+                fillOpacity={isOpen ? '0.0' : null}
+              />
+              <rect
+                id="rect3"
+                y={isOpen ? '30' : '60'}
+                width={isOpen ? '100' : '30'}
+                height="10"
+                transform={isOpen ? 'rotate(-45)' : null}
+              />
             </svg>
           </button>
         </NavigationHamburger>
