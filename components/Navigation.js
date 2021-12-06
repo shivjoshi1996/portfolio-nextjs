@@ -6,14 +6,17 @@ const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
   border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
   color: ${(props) => props.theme.colors.textPrimary};
+  position: relative;
 `;
 
 const MobileNavigationContainer = styled.div`
+  min-height: 10vh;
   width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
 `;
 
 const NavigationLogo = styled.div`
@@ -56,6 +59,16 @@ const NavigationHamburger = styled.div`
   }
 `;
 
+const MobileDrawerContainer = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.textPrimary};
+  transition: 0.5s;
+  opacity: ${(props) => props.mobileDrawerOpacity};
+`;
+
 const NavigationContentWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -76,6 +89,7 @@ export default function Navigation({ nav }) {
 
   const handleHamburgerClick = () => {
     setIsOpen(!isOpen);
+    console.log(isOpen);
   };
 
   return (
@@ -86,7 +100,7 @@ export default function Navigation({ nav }) {
         </NavigationLogo>
         <NavigationHamburger>
           <button type="button" onClick={handleHamburgerClick}>
-            <svg viewBox="0 0 100 80" width="100" height="30">
+            <svg viewBox="0 0 100 80" width="100%" height="30">
               <rect
                 id="rect1"
                 width="100"
@@ -112,6 +126,9 @@ export default function Navigation({ nav }) {
           </button>
         </NavigationHamburger>
       </MobileNavigationContainer>
+      <MobileDrawerContainer mobileDrawerOpacity={isOpen ? '1' : '0'}>
+        <p>This is the Drawer</p>
+      </MobileDrawerContainer>
       {/*
       <NavigationContentWrapper>
         <Link href="/">{nav[0].title}</Link>
