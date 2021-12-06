@@ -47,6 +47,23 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: ${(props) => props.theme.font};
   }
+
+  h1 {
+    font-size: 2.5rem;
+    @media (min-width: 1080px) {
+      font-size: 4rem;
+    }
+    
+  }
+  h2 {
+    font-size: 2rem;
+    @media (min-width: 48rem) {
+      font-size: 3rem;
+    }
+  }
+  h3 {
+    font-size: 1.125rem;
+  }
 `;
 
 export default GlobalStyles;
