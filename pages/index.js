@@ -15,6 +15,12 @@ const homeQuery = groq`
     heroText,
     heroButtons,
     heroImage,
+    featuredProjects[] -> {
+      title,
+      slug,
+      mainImage,
+      publishedAt,
+    },
     currentTechnologies[] -> {title, mainImage},
     learningTechnologies[] -> {title, mainImage},
   }
@@ -26,14 +32,14 @@ const NavQuery = groq`
   }
 `;
 
-const featuredProjectsQuery = groq`
-  *[_type == "project" && featured == true]{
-    title,
-    slug,
-    mainImage,
-    publishedAt,
-  }
-`;
+// const featuredProjectsQuery = groq`
+//   *[_type == "project" && featured == true]{
+//     title,
+//     slug,
+//     mainImage,
+//     publishedAt,
+//   }
+// `;
 
 export default function Home(props) {
   const { data } = props;
@@ -45,10 +51,10 @@ export default function Home(props) {
     heroImage,
     currentTechnologies,
     learningTechnologies,
+    featuredProjects,
   } = data.home[0];
+  console.log(featuredProjects);
   const { nav } = data;
-  const { featuredProjects } = data;
-  console.log(learningTechnologies);
   return (
     <>
       <Navigation nav={nav} />
@@ -71,14 +77,11 @@ export async function getStaticProps({ params, preview = false }) {
   // TODO - See if these calls can be batched together
   const home = await getClient(preview).fetch(homeQuery);
   const nav = await getClient(preview).fetch(NavQuery);
-  const featuredProjects = await getClient(preview).fetch(
-    featuredProjectsQuery
-  );
 
   return {
     props: {
       preview,
-      data: { home, nav, featuredProjects },
+      data: { home, nav },
     },
   };
 }
