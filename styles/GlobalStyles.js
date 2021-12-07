@@ -46,6 +46,8 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: ${(props) => props.theme.font};
+    color: ${(props) => props.theme.colors.textPrimary};
+    scroll-behaviour: smooth;
   }
 
   h1 {

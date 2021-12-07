@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { usePreviewSubscription, urlFor, PortableText } from '../lib/sanity';
 
 const StyledHeroWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.background};
+  border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
 `;
 
 const StyledHero = styled.div`
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +42,13 @@ const StyledHeroText = styled.div`
 
 const StyledHeroImage = styled.div`
   flex: 1;
+  height: 200px;
+  width: 300px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const StyledHeroButtons = styled.div`
@@ -54,6 +65,9 @@ export default function Hero({
   return (
     <StyledHeroWrapper>
       <StyledHero>
+        <StyledHeroImage>
+          <img src={urlFor(heroImage).url()} />
+        </StyledHeroImage>
         <StyledHeroText>
           <h2>{heroHeading}</h2>
           <p>{heroText}</p>
@@ -65,14 +79,6 @@ export default function Hero({
             ))}
           </StyledHeroButtons>
         </StyledHeroText>
-        <StyledHeroImage>
-          <img
-            src={urlFor(heroImage).width(100).url()}
-            width="100"
-            height="100"
-            quality={100}
-          />
-        </StyledHeroImage>
       </StyledHero>
     </StyledHeroWrapper>
   );
