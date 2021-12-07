@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
-import { usePreviewSubscription, urlFor, PortableText } from '../lib/sanity';
+import { urlFor } from '../lib/sanity';
 
 const StyledHeroWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.background};
@@ -66,7 +65,8 @@ export default function Hero({
     <StyledHeroWrapper>
       <StyledHero>
         <StyledHeroImage>
-          <img src={urlFor(heroImage).url()} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={urlFor(heroImage).url()} alt="" />
         </StyledHeroImage>
         <StyledHeroText>
           <h2>{heroHeading}</h2>

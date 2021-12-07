@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import Link from 'next/link';
-import Image from 'next/image';
-import { usePreviewSubscription, urlFor, PortableText } from '../lib/sanity';
+import { urlFor } from '../lib/sanity';
 
 const StyledFeaturedProjectsContainer = styled.div`
   padding-top: 2rem;
@@ -97,7 +97,11 @@ export default function FeaturedProjects({ featuredProjects }) {
                 </Link>
               </StyledProjectInfoWrapper>
               <StyledImage>
-                <img src={urlFor(project.mainImage).url()} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={urlFor(project.mainImage).url()}
+                  alt={`${project.title} project`}
+                />
               </StyledImage>
               <p className="roles">{rolesString}</p>
             </StyledFeaturedProject>

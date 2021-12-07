@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { groq } from 'next-sanity';
 
@@ -45,14 +46,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview = false }) {
   // Navigation Query
-  const NavQuery = groq`
-  *[_type == "navigation" && id == "mainNav"]{
-    title,
-    navItems,
-  }
-`;
 
-  const nav = await getClient(preview).fetch(NavQuery);
+  //   const NavQuery = groq`
+  //   *[_type == "navigation" && id == "mainNav"]{
+  //     title,
+  //     navItems,
+  //   }
+  // `;
+
+  // const nav = await getClient(preview).fetch(NavQuery);
 
   // Page Query
   const query = groq`*[_type == "project" && slug.current == $slug]`;
@@ -71,7 +73,7 @@ export async function getStaticProps({ params, preview = false }) {
       // Pass down the "preview mode" boolean to the client-side
       preview,
       // Pass down the initial content, and our query
-      data: { page, query, queryParams, nav },
+      data: { page, query, queryParams },
     },
   };
 }
@@ -95,7 +97,7 @@ export default function Page({ data, preview }) {
   // It'll be completely blank when they start!
   return (
     <>
-      <Navigation nav={data.nav} />
+      {/* <Navigation nav={data.nav} /> */}
       <div style={{ maxWidth: `20rem`, padding: `1rem` }}>
         {page?.title && <h1>{page.title}</h1>}
       </div>

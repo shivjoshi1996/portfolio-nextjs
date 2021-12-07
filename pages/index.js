@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Head from 'next/head';
 import Image from 'next/image';
 import { groq } from 'next-sanity';
@@ -81,7 +82,7 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps({ preview = false }) {
   // TODO - See if these calls can be batched together
   const home = await getClient(preview).fetch(homeQuery);
   const nav = await getClient(preview).fetch(NavQuery);

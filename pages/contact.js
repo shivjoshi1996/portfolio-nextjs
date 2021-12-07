@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { groq } from 'next-sanity';
 import Navigation from '../components/Navigation';
 import { getClient } from '../lib/sanity.server';
@@ -18,7 +19,7 @@ const NavQuery = groq`
   }
 `;
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps({ preview = false }) {
   const nav = await getClient(preview).fetch(NavQuery);
 
   return {
