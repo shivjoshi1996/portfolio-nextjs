@@ -58,8 +58,7 @@ export default function Home(props) {
   return (
     <>
       <Navigation nav={nav} />
-
-      {/* <Hero
+      <Hero
         heroHeading={heroHeading}
         heroText={heroText}
         heroButtons={heroButtons}
@@ -70,7 +69,10 @@ export default function Home(props) {
         learningTechnologies={learningTechnologies}
         currentTechnologies={currentTechnologies}
       />
-      */}
+      <p>
+        lorem lorem loremloremloremloremloremlorem loremloremlorem
+        loremloremlorem loremloremloremloremloremlorem loremloremloremlorems
+      </p>
     </>
   );
 }

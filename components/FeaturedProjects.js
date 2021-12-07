@@ -6,8 +6,8 @@ const StyledFeaturedProjectsContainer = styled.div`
   background-color: ${(props) => props.theme.colors.background};
 `;
 const StyledImage = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 `;
 
 export default function FeaturedProjects({ featuredProjects }) {
@@ -18,10 +18,11 @@ export default function FeaturedProjects({ featuredProjects }) {
         <div key={project.title}>
           <p>{project.title}</p>
           <p>{project.publishedAt}</p>
-          <StyledImage>
-            {/* eslint-disable-next-line  */}
-            <Image src={urlFor(project.mainImage).url()} width={300} height={300} layout="responsive" />
-          </StyledImage>
+          {/* 
+            <StyledImage>
+            <Image src={urlFor(project.mainImage).url()} width={150} height={150} layout="responsive" />
+          </StyledImage> 
+      */}
           <a href={`/projects/${project.slug.current}`}>View Project</a>
         </div>
       ))}

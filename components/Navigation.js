@@ -6,7 +6,8 @@ const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
   border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
   color: ${(props) => props.theme.colors.textPrimary};
-  position: relative;
+  position: fixed;
+  width: 100%;
 `;
 
 const MobileNavigationContainer = styled.div`
@@ -16,7 +17,6 @@ const MobileNavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
 `;
 
 const NavigationLogo = styled.div`
@@ -61,12 +61,27 @@ const NavigationHamburger = styled.div`
 
 const MobileDrawerContainer = styled.div`
   position: absolute;
+  margin-top: 2px;
   width: 100vw;
   height: 90vh;
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.textPrimary};
-  transition: 0.5s;
   opacity: ${(props) => props.mobileDrawerOpacity};
+  transform: translateX(${(props) => props.mobileDrawerPosition});
+  transition: 0.8s;
+
+  li {
+    padding: 1rem 0rem;
+    list-style: none;
+    width: 90%;
+    margin: 0 auto;
+  }
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: ${(props) => props.theme.colors.textPrimary};
+    border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
+  }
 `;
 
 const NavigationContentWrapper = styled.ul`
@@ -126,9 +141,17 @@ export default function Navigation({ nav }) {
           </button>
         </NavigationHamburger>
       </MobileNavigationContainer>
-      <MobileDrawerContainer mobileDrawerOpacity={isOpen ? '1' : '0'}>
-        <p>This is the Drawer</p>
+      <MobileDrawerContainer
+        mobileDrawerOpacity={isOpen ? '1' : '0'}
+        mobileDrawerPosition={isOpen ? '0' : '100vw'}
+      >
+        {nav[0].navItems.map((item) => (
+          <li key={item.text}>
+            <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
+          </li>
+        ))}
       </MobileDrawerContainer>
+
       {/*
       <NavigationContentWrapper>
         <Link href="/">{nav[0].title}</Link>

@@ -9,9 +9,11 @@ const StyledHeroWrapper = styled.div`
 
 const StyledHero = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: 80%;
+  padding-top: 15vh;
 `;
 
 const StyledHeroText = styled.div`
@@ -64,9 +66,9 @@ export default function Hero({
         </StyledHeroText>
         <StyledHeroImage>
           <img
-            src={urlFor(heroImage).width(600).url()}
-            width="600"
-            height="400"
+            src={urlFor(heroImage).width(100).url()}
+            width="100"
+            height="100"
             quality={100}
           />
         </StyledHeroImage>
