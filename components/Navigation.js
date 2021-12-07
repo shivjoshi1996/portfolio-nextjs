@@ -47,6 +47,7 @@ const NavigationHamburger = styled.div`
     }
   }
   svg {
+    display: block;
     fill: ${(props) => props.theme.colors.textPrimary};
     #rect1,
     #rect2,
