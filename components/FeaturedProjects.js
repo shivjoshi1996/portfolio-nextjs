@@ -14,6 +14,12 @@ const StyledFeaturedProjectsContainer = styled.div`
     padding-left: 5%;
     margin-bottom: 2rem;
   }
+
+  .roles {
+    text-align: right;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
 `;
 
 const StyledFeaturedProjectsWrapper = styled.div`
@@ -63,22 +69,41 @@ export default function FeaturedProjects({ featuredProjects }) {
     <StyledFeaturedProjectsContainer>
       <h2>Featured Projects</h2>
       <StyledFeaturedProjectsWrapper>
-        {featuredProjects.map((project) => (
-          <StyledFeaturedProject key={project.title}>
-            <StyledProjectDateWrapper>
-              <span>{project.publishedAt.split('-')[0]}</span>
-              <span className="datedivider" />
-            </StyledProjectDateWrapper>
-            <StyledProjectInfoWrapper>
-              <Link href={`/projects/${project.slug.current}`}>
-                {project.title}
-              </Link>
-            </StyledProjectInfoWrapper>
-            <StyledImage>
-              <img src={urlFor(project.mainImage).url()} />
-            </StyledImage>
-          </StyledFeaturedProject>
-        ))}
+        {featuredProjects.map((project) => {
+          const roles = [];
+          let rolesString;
+
+          project.projectRoles.forEach((role) => {
+            roles.push(role.title);
+          });
+
+          if (roles.length > 1) {
+            rolesString = roles.join(', ');
+          } else if (roles.length === 1) {
+            rolesString = roles.toString();
+          } else {
+            rolesString = '';
+          }
+
+          return (
+            <StyledFeaturedProject key={project.title}>
+              <StyledProjectDateWrapper>
+                <span>{project.publishedAt.split('-')[0]}</span>
+                <span className="datedivider" />
+              </StyledProjectDateWrapper>
+              <StyledProjectInfoWrapper>
+                <Link href={`/projects/${project.slug.current}`}>
+                  {project.title}
+                </Link>
+              </StyledProjectInfoWrapper>
+              <StyledImage>
+                <img src={urlFor(project.mainImage).url()} />
+              </StyledImage>
+              <p className="roles">{rolesString}</p>
+            </StyledFeaturedProject>
+          );
+        })}
+        <Link href="/projects">View All Projects</Link>
       </StyledFeaturedProjectsWrapper>
     </StyledFeaturedProjectsContainer>
   );

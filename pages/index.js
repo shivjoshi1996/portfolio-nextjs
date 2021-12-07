@@ -21,6 +21,7 @@ const homeQuery = groq`
       slug,
       mainImage,
       publishedAt,
+      projectRoles[]->{title},
     },
     currentTechnologies[] -> {title, mainImage},
     learningTechnologies[] -> {title, mainImage},
