@@ -31,9 +31,12 @@ const NavigationLogo = styled.div`
 
 const NavigationHamburger = styled.div`
   button {
-    background-color: transparent;
     border: none;
-    cursor: pointer;
+    background-image: none;
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 
     &:hover {
       #rect2,
