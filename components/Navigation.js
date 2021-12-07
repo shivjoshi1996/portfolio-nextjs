@@ -121,8 +121,8 @@ export default function Navigation({ nav }) {
                 id="rect1"
                 width="100"
                 height="10"
-                y={isOpen ? '30' : '0'}
-                transform={isOpen ? 'rotate(45)' : null}
+                y={isOpen ? '15' : '0'}
+                transform={isOpen ? 'rotate(15)' : null}
               />
               <rect
                 id="rect2"
@@ -133,10 +133,10 @@ export default function Navigation({ nav }) {
               />
               <rect
                 id="rect3"
-                y={isOpen ? '30' : '60'}
-                width={isOpen ? '100' : '30'}
+                y={isOpen ? '40' : '60'}
+                width={isOpen ? '100' : '32'}
                 height="10"
-                transform={isOpen ? 'rotate(-45)' : null}
+                transform={isOpen ? 'rotate(-15)' : null}
               />
             </svg>
           </button>
