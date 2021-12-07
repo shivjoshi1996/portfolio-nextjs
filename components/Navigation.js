@@ -81,6 +81,7 @@ const MobileDrawerContainer = styled.div`
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.textPrimary};
     border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
+    font-size: clamp(2rem, 2vw, 4rem);
   }
 `;
 

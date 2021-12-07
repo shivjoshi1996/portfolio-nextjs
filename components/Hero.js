@@ -12,7 +12,7 @@ const StyledHero = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   padding-top: 15vh;
 `;
 
@@ -20,11 +20,13 @@ const StyledHeroText = styled.div`
   flex: 1;
   color: ${(props) => props.theme.colors.textPrimary};
   h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 2vw, 4rem);
+    margin-bottom: 1rem;
   }
   p {
     font-size: 1rem;
     line-height: 1.7;
+    margin-bottom: 1rem;
   }
 
   a {
