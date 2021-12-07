@@ -37,6 +37,7 @@ const NavigationHamburger = styled.div`
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+    cursor: pointer;
 
     &:hover {
       #rect2,
@@ -120,14 +121,14 @@ export default function Navigation({ nav }) {
         </NavigationLogo>
         <NavigationHamburger>
           <button type="button" onClick={handleHamburgerClick}>
-            <svg viewBox="0 0 100 80" width="100%" height="30" fill="#ddd">
+            <svg viewBox="0 0 100 80" width="100%" height="30" fill="%23ddd">
               <rect
                 id="rect1"
                 width="100"
                 height="10"
                 y={isOpen ? '15' : '0'}
                 transform={isOpen ? 'rotate(15)' : null}
-                fill="#ddd"
+                fill="%23ddd"
               />
               <rect
                 id="rect2"
@@ -135,7 +136,7 @@ export default function Navigation({ nav }) {
                 width="55"
                 height="10"
                 fillOpacity={isOpen ? '0.0' : null}
-                fill="#ddd"
+                fill="%23ddd"
               />
               <rect
                 id="rect3"
@@ -143,7 +144,7 @@ export default function Navigation({ nav }) {
                 width={isOpen ? '100' : '32'}
                 height="10"
                 transform={isOpen ? 'rotate(-15)' : null}
-                fill="#ddd"
+                fill="%23ddd"
               />
             </svg>
           </button>
