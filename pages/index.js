@@ -8,6 +8,7 @@ import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
 import TechnologiesSection from '../components/TechnologiesSection';
+import ContentWrapper from '../components/ContentWrapper';
 
 const homeQuery = groq`
   *[_type == "homepage"]{
@@ -58,21 +59,23 @@ export default function Home(props) {
   return (
     <>
       <Navigation nav={nav} />
-      <Hero
-        heroHeading={heroHeading}
-        heroText={heroText}
-        heroButtons={heroButtons}
-        heroImage={heroImage}
-      />
-      <FeaturedProjects featuredProjects={featuredProjects} />
-      <TechnologiesSection
-        learningTechnologies={learningTechnologies}
-        currentTechnologies={currentTechnologies}
-      />
-      <p>
-        lorem lorem loremloremloremloremloremlorem loremloremlorem
-        loremloremlorem loremloremloremloremloremlorem loremloremloremlorems
-      </p>
+      <ContentWrapper>
+        <Hero
+          heroHeading={heroHeading}
+          heroText={heroText}
+          heroButtons={heroButtons}
+          heroImage={heroImage}
+        />
+        <FeaturedProjects featuredProjects={featuredProjects} />
+        <TechnologiesSection
+          learningTechnologies={learningTechnologies}
+          currentTechnologies={currentTechnologies}
+        />
+        <p>
+          lorem lorem loremloremloremloremloremlorem loremloremlorem
+          loremloremlorem loremloremloremloremloremlorem loremloremloremlorems
+        </p>
+      </ContentWrapper>
     </>
   );
 }

@@ -13,7 +13,6 @@ const StyledHero = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 90%;
-  padding-top: 15vh;
 `;
 
 const StyledHeroText = styled.div`
