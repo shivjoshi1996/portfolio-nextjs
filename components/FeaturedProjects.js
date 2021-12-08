@@ -5,7 +5,7 @@ import { urlFor } from '../lib/sanity';
 
 const StyledFeaturedProjectsContainer = styled.div`
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   background-color: ${(props) => props.theme.colors.background};
 
   h2 {
@@ -70,6 +70,15 @@ const StyledImage = styled.div`
   }
 `;
 
+const StyledViewAllLink = styled.div`
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.textPrimary};
+    text-align: center;
+  }
+`;
+
 export default function FeaturedProjects({ featuredProjects }) {
   return (
     <StyledFeaturedProjectsContainer>
@@ -113,8 +122,10 @@ export default function FeaturedProjects({ featuredProjects }) {
             </StyledFeaturedProject>
           );
         })}
-        <Link href="/projects">View All Projects</Link>
       </StyledFeaturedProjectsWrapper>
+      <StyledViewAllLink>
+        <Link href="/projects">View All Projects</Link>
+      </StyledViewAllLink>
     </StyledFeaturedProjectsContainer>
   );
 }

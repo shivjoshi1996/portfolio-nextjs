@@ -5,7 +5,6 @@ import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 
 export default function Project({ project, nav }) {
-  console.log(nav);
   if (nav && project) {
     return (
       <>
@@ -31,7 +30,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { slug = '' } = context.params;
-  console.log(slug);
   const project = await client.fetch(
     `
   *[_type == "project" && slug.current == $slug][0]

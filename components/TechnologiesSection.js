@@ -1,28 +1,78 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
+import { urlFor } from '../lib/sanity';
 
 const StyledTechnologiesSection = styled.div`
   background-color: ${(props) => props.theme.colors.background};
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  img {
+    height: auto;
+    width: 50px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+`;
+
+const StyledTechnologiesWrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`;
+
+const TechnologyWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+`;
+
+const StyledTechnology = styled.div`
+  p {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export default function TechnologiesSection({
-  learningTechnologies,
   currentTechnologies,
+  learningTechnologies,
 }) {
+  console.log(currentTechnologies);
   return (
     <StyledTechnologiesSection>
-      <p>Current</p>
-      {currentTechnologies.map((technology) => (
-        <div key={technology.title}>
-          <p>{technology.title}</p>
-        </div>
-      ))}
-      <p>Learning</p>
-      {learningTechnologies.map((technology) => (
-        <div key={technology.title}>
-          <p>{technology.title}</p>
-        </div>
-      ))}
+      <StyledTechnologiesWrapper>
+        <h2>Tech Stack</h2>
+        <h3>Currently Using</h3>
+        <TechnologyWrapper>
+          {currentTechnologies.map((technology) => (
+            <StyledTechnology key={technology.title}>
+              <p>{technology.title}</p>
+              <img
+                src={urlFor(technology.mainImage).url()}
+                alt={technology.title}
+              />
+            </StyledTechnology>
+          ))}
+        </TechnologyWrapper>
+        <h3>Currently Learning</h3>
+        <TechnologyWrapper>
+          {learningTechnologies.map((technology) => (
+            <StyledTechnology key={technology.title}>
+              <p>{technology.title}</p>
+              <img
+                src={urlFor(technology.mainImage).url()}
+                alt={technology.title}
+              />
+            </StyledTechnology>
+          ))}
+        </TechnologyWrapper>
+      </StyledTechnologiesWrapper>
     </StyledTechnologiesSection>
   );
 }

@@ -34,18 +34,8 @@ const NavQuery = groq`
   }
 `;
 
-// const featuredProjectsQuery = groq`
-//   *[_type == "project" && featured == true]{
-//     title,
-//     slug,
-//     mainImage,
-//     publishedAt,
-//   }
-// `;
-
 export default function Home(props) {
   const { data } = props;
-  console.log(data);
   const {
     heroHeading,
     heroText,
@@ -55,9 +45,8 @@ export default function Home(props) {
     learningTechnologies,
     featuredProjects,
   } = data.home[0];
-  console.log(featuredProjects);
+
   const { nav } = data;
-  console.log(nav);
   return (
     <>
       <Navigation nav={nav} />
