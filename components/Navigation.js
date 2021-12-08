@@ -107,6 +107,7 @@ const NavigationContentWrapper = styled.ul`
 `;
 
 export default function Navigation({ nav }) {
+  console.log(`navigation ${nav}`);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleHamburgerClick = () => {

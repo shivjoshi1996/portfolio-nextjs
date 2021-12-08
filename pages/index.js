@@ -58,6 +58,7 @@ export default function Home(props) {
   } = data.home[0];
   console.log(featuredProjects);
   const { nav } = data;
+  console.log(nav);
   return (
     <>
       <Navigation nav={nav} />
