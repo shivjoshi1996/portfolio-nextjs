@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
-  border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
+  border-bottom: 1px solid ${(props) => props.theme.colors.textPrimary};
   color: ${(props) => props.theme.colors.textPrimary};
   position: fixed;
   width: 100%;
@@ -106,6 +106,11 @@ const NavigationContentWrapper = styled.ul`
   }
 `;
 
+const NavigationPagePadding = styled.div`
+  padding-bottom: 10vh;
+  background-color: ${(props) => props.theme.colors.background};
+`;
+
 export default function Navigation({ nav }) {
   console.log(`navigation ${nav}`);
   const [isOpen, setIsOpen] = useState(false);
@@ -116,54 +121,55 @@ export default function Navigation({ nav }) {
   };
 
   return (
-    <NavigationContainer>
-      <MobileNavigationContainer>
-        <NavigationLogo>
-          <Link href="/">{nav[0].title}</Link>
-        </NavigationLogo>
-        <NavigationHamburger>
-          <button type="button" onClick={handleHamburgerClick}>
-            <svg viewBox="0 0 100 80" width="100%" height="30" fill="%23ddd">
-              <rect
-                id="rect1"
-                width="100"
-                height="10"
-                y={isOpen ? '15' : '0'}
-                transform={isOpen ? 'rotate(15)' : null}
-                fill="%23ddd"
-              />
-              <rect
-                id="rect2"
-                y="30"
-                width="55"
-                height="10"
-                fillOpacity={isOpen ? '0.0' : null}
-                fill="%23ddd"
-              />
-              <rect
-                id="rect3"
-                y={isOpen ? '40' : '60'}
-                width={isOpen ? '100' : '32'}
-                height="10"
-                transform={isOpen ? 'rotate(-15)' : null}
-                fill="%23ddd"
-              />
-            </svg>
-          </button>
-        </NavigationHamburger>
-      </MobileNavigationContainer>
-      <MobileDrawerContainer
-        mobileDrawerOpacity={isOpen ? '1' : '0'}
-        mobileDrawerPosition={isOpen ? '0' : '100vw'}
-      >
-        {nav[0].navItems.map((item) => (
-          <li key={item.text}>
-            <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
-          </li>
-        ))}
-      </MobileDrawerContainer>
+    <>
+      <NavigationContainer>
+        <MobileNavigationContainer>
+          <NavigationLogo>
+            <Link href="/">{nav[0].title}</Link>
+          </NavigationLogo>
+          <NavigationHamburger>
+            <button type="button" onClick={handleHamburgerClick}>
+              <svg viewBox="0 0 100 80" width="100%" height="30" fill="%23ddd">
+                <rect
+                  id="rect1"
+                  width="100"
+                  height="10"
+                  y={isOpen ? '15' : '0'}
+                  transform={isOpen ? 'rotate(15)' : null}
+                  fill="%23ddd"
+                />
+                <rect
+                  id="rect2"
+                  y="30"
+                  width="55"
+                  height="10"
+                  fillOpacity={isOpen ? '0.0' : null}
+                  fill="%23ddd"
+                />
+                <rect
+                  id="rect3"
+                  y={isOpen ? '40' : '60'}
+                  width={isOpen ? '100' : '32'}
+                  height="10"
+                  transform={isOpen ? 'rotate(-15)' : null}
+                  fill="%23ddd"
+                />
+              </svg>
+            </button>
+          </NavigationHamburger>
+        </MobileNavigationContainer>
+        <MobileDrawerContainer
+          mobileDrawerOpacity={isOpen ? '1' : '0'}
+          mobileDrawerPosition={isOpen ? '0' : '100vw'}
+        >
+          {nav[0].navItems.map((item) => (
+            <li key={item.text}>
+              <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
+            </li>
+          ))}
+        </MobileDrawerContainer>
 
-      {/*
+        {/*
       <NavigationContentWrapper>
         <Link href="/">{nav[0].title}</Link>
         {nav[0].navItems.map((item) => (
@@ -174,6 +180,8 @@ export default function Navigation({ nav }) {
       </NavigationContentWrapper>
 
         */}
-    </NavigationContainer>
+      </NavigationContainer>
+      <NavigationPagePadding />
+    </>
   );
 }

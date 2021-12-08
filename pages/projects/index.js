@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { groq } from 'next-sanity';
-import ContentWrapper from '../../components/ContentWrapper';
 import Navigation from '../../components/Navigation';
 import { getClient } from '../../lib/sanity.server';
 
@@ -8,10 +7,8 @@ export default function Projects({ data }) {
   return (
     <>
       <Navigation nav={data.nav} />
-      <ContentWrapper>
-        <h1>Projects</h1>
-        <p>Yo</p>
-      </ContentWrapper>
+      <h1>Projects</h1>
+      <p>Yo</p>
     </>
   );
 }

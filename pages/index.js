@@ -62,23 +62,21 @@ export default function Home(props) {
   return (
     <>
       <Navigation nav={nav} />
-      <ContentWrapper>
-        <Hero
-          heroHeading={heroHeading}
-          heroText={heroText}
-          heroButtons={heroButtons}
-          heroImage={heroImage}
-        />
-        <FeaturedProjects featuredProjects={featuredProjects} />
-        <TechnologiesSection
-          learningTechnologies={learningTechnologies}
-          currentTechnologies={currentTechnologies}
-        />
-        <p>
-          lorem lorem loremloremloremloremloremlorem loremloremlorem
-          loremloremlorem loremloremloremloremloremlorem loremloremloremlorems
-        </p>
-      </ContentWrapper>
+      <Hero
+        heroHeading={heroHeading}
+        heroText={heroText}
+        heroButtons={heroButtons}
+        heroImage={heroImage}
+      />
+      <FeaturedProjects featuredProjects={featuredProjects} />
+      <TechnologiesSection
+        learningTechnologies={learningTechnologies}
+        currentTechnologies={currentTechnologies}
+      />
+      <p>
+        lorem lorem loremloremloremloremloremlorem loremloremlorem
+        loremloremlorem loremloremloremloremloremlorem loremloremloremlorems
+      </p>
     </>
   );
 }
