@@ -5,7 +5,7 @@ import { urlFor } from '../lib/sanity';
 
 const StyledHeroWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.background};
-  border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
+  border-bottom: 1 px solid ${(props) => props.theme.colors.textPrimary};
 `;
 
 const StyledHero = styled.div`

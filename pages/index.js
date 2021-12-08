@@ -9,7 +9,6 @@ import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
 import TechnologiesSection from '../components/TechnologiesSection';
-import ContentWrapper from '../components/ContentWrapper';
 
 const homeQuery = groq`
   *[_type == "homepage"]{

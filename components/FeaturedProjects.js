@@ -25,6 +25,12 @@ const StyledFeaturedProjectsContainer = styled.div`
 const StyledFeaturedProjectsWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+
+  @media (min-width: 48rem) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
 `;
 
 const StyledFeaturedProject = styled.div`
