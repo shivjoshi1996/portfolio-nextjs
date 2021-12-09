@@ -8,7 +8,7 @@ export default function Projects({ data }) {
     <>
       <Navigation nav={data.nav} />
       <h1>Projects</h1>
-      <p>Yo</p>
+      <p>Explore a selection of my projects below.</p>
     </>
   );
 }
@@ -20,13 +20,22 @@ const NavQuery = groq`
   }
 `;
 
+const ProjectsQuery = groq`
+*[_type == "project"]{
+  title,
+  mainImage,
+  slug
+}
+`;
+
 export async function getStaticProps({ preview = false }) {
   const nav = await getClient(preview).fetch(NavQuery);
+  const projects = await getClient(preview).fetch(ProjectsQuery);
 
   return {
     props: {
       preview,
-      data: { nav },
+      data: { nav, projects },
     },
   };
 }

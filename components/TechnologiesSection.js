@@ -9,6 +9,7 @@ const StyledTechnologiesSection = styled.div`
   img {
     height: auto;
     width: 50px;
+    margin-bottom: 0.5rem;
   }
   h2 {
     font-size: 1.5rem;
@@ -33,16 +34,13 @@ const TechnologyWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const StyledTechnology = styled.div`
-  p {
-    margin-bottom: 0.5rem;
-  }
-`;
+const StyledTechnology = styled.div``;
 
 export default function TechnologiesSection({
   currentTechnologies,
   learningTechnologies,
 }) {
+  // TODO - Split technology into seperate component
   console.log(currentTechnologies);
   return (
     <StyledTechnologiesSection>
@@ -52,11 +50,11 @@ export default function TechnologiesSection({
         <TechnologyWrapper>
           {currentTechnologies.map((technology) => (
             <StyledTechnology key={technology.title}>
-              <p>{technology.title}</p>
               <img
                 src={urlFor(technology.mainImage).url()}
                 alt={technology.title}
               />
+              <p>{technology.title}</p>
             </StyledTechnology>
           ))}
         </TechnologyWrapper>
@@ -64,11 +62,11 @@ export default function TechnologiesSection({
         <TechnologyWrapper>
           {learningTechnologies.map((technology) => (
             <StyledTechnology key={technology.title}>
-              <p>{technology.title}</p>
               <img
                 src={urlFor(technology.mainImage).url()}
                 alt={technology.title}
               />
+              <p>{technology.title}</p>
             </StyledTechnology>
           ))}
         </TechnologyWrapper>
