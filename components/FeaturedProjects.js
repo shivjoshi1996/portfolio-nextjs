@@ -63,10 +63,17 @@ const StyledImage = styled.div`
   width: 100%;
   height: auto;
   margin-bottom: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
 
   img {
     width: 100%;
     height: 100%;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
 

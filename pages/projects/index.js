@@ -4,11 +4,17 @@ import Navigation from '../../components/Navigation';
 import { getClient } from '../../lib/sanity.server';
 
 export default function Projects({ data }) {
+  const { projects, nav } = data;
   return (
     <>
-      <Navigation nav={data.nav} />
+      <Navigation nav={nav} />
       <h1>Projects</h1>
       <p>Explore a selection of my projects below.</p>
+      {projects.map((project) => (
+        <div key={project.slug.current}>
+          <h2>{project.title}</h2>
+        </div>
+      ))}
     </>
   );
 }
