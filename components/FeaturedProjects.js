@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { urlFor } from '../lib/sanity';
+import ProjectCard from './ProjectCard';
 
 const StyledFeaturedProjectsContainer = styled.div`
   padding-top: 2rem;
@@ -14,12 +15,6 @@ const StyledFeaturedProjectsContainer = styled.div`
     padding-left: 5%;
     margin-bottom: 2rem;
   }
-
-  .roles {
-    text-align: right;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-  }
 `;
 
 const StyledFeaturedProjectsWrapper = styled.div`
@@ -30,50 +25,6 @@ const StyledFeaturedProjectsWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-  }
-`;
-
-const StyledFeaturedProject = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const StyledProjectDateWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
-
-  .datedivider {
-    background-color: ${(props) => props.theme.colors.textPrimary};
-    height: 1px;
-    width: 100%;
-  }
-`;
-
-const StyledProjectInfoWrapper = styled.div`
-  margin-bottom: 0.5rem;
-  a {
-    text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
-  }
-`;
-
-const StyledImage = styled.div`
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-  cursor: pointer;
-
-  img {
-    width: 100%;
-    height: 100%;
-    transition: 1s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 `;
 
@@ -91,44 +42,9 @@ export default function FeaturedProjects({ featuredProjects }) {
     <StyledFeaturedProjectsContainer>
       <h2>Featured Projects</h2>
       <StyledFeaturedProjectsWrapper>
-        {featuredProjects.map((project) => {
-          const roles = [];
-          let rolesString;
-
-          project.projectRoles.forEach((role) => {
-            roles.push(role.title);
-          });
-
-          if (roles.length > 1) {
-            rolesString = roles.join(', ');
-          } else if (roles.length === 1) {
-            rolesString = roles.toString();
-          } else {
-            rolesString = '';
-          }
-
-          return (
-            <StyledFeaturedProject key={project.title}>
-              <StyledProjectDateWrapper>
-                <span>{project.publishedAt.split('-')[0]}</span>
-                <span className="datedivider" />
-              </StyledProjectDateWrapper>
-              <StyledProjectInfoWrapper>
-                <Link href={`/projects/${project.slug.current}`}>
-                  {project.title}
-                </Link>
-              </StyledProjectInfoWrapper>
-              <StyledImage>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={urlFor(project.mainImage).url()}
-                  alt={`${project.title} project`}
-                />
-              </StyledImage>
-              <p className="roles">{rolesString}</p>
-            </StyledFeaturedProject>
-          );
-        })}
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
       </StyledFeaturedProjectsWrapper>
       <StyledViewAllLink>
         <Link href="/projects">View All Projects</Link>

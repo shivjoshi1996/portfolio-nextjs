@@ -9,6 +9,7 @@ const NavigationContainer = styled.nav`
   color: ${(props) => props.theme.colors.textPrimary};
   position: fixed;
   width: 100%;
+  z-index: 99;
 `;
 
 const MobileNavigationContainer = styled.div`
