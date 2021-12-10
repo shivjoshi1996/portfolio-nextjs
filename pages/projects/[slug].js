@@ -11,6 +11,7 @@ import { urlFor } from '../../lib/sanity';
 
 const ProjectSection = styled.section`
   background-color: ${(props) => props.theme.colors.background};
+  padding-bottom: 2rem;
 `;
 
 const StyledViewAllProjectsLink = styled.div`
@@ -29,6 +30,11 @@ const ProjectHeroWrapper = styled.div`
   img {
     width: 100%;
     height: auto;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    padding: 0 0 0 5%;
   }
 `;
 
@@ -38,19 +44,28 @@ const StyledProjectBodyContent = styled.div`
   img {
     width: 100%;
     height: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 `;
 
 const ProjectInfoWrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
 `;
 
 const StyledProjectDate = styled.div``;
 
-const StyledProjectTechnology = styled.div``;
+const StyledProjectTechnology = styled.div`
+  grid-column: 1/3;
+`;
 
-const StyledProjectRoles = styled.div``;
+const StyledProjectRoles = styled.div`
+  text-align: right;
+`;
 
 export default function Project({ project, nav }) {
   console.log(project);
@@ -84,15 +99,6 @@ export default function Project({ project, nav }) {
               </StyledProjectDate>
             )}
 
-            {project?.technologies && (
-              <StyledProjectTechnology>
-                <h3>TECHNOLOGIES USED</h3>
-                {project?.technologies.map((technology) => (
-                  <p key={technology.title}>{technology.title}</p>
-                ))}
-              </StyledProjectTechnology>
-            )}
-
             {project?.projectRoles && (
               <StyledProjectRoles>
                 <h3>ROLES</h3>
@@ -101,6 +107,15 @@ export default function Project({ project, nav }) {
                   <p key={role.title}>{role.title}</p>
                 ))}
               </StyledProjectRoles>
+            )}
+
+            {project?.technologies && (
+              <StyledProjectTechnology>
+                <h3>TECHNOLOGIES USED</h3>
+                {project?.technologies.map((technology) => (
+                  <p key={technology.title}>{technology.title}</p>
+                ))}
+              </StyledProjectTechnology>
             )}
           </ProjectInfoWrapper>
 
