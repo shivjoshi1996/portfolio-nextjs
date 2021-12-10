@@ -41,10 +41,12 @@ const ProjectHeroWrapper = styled.div`
 const StyledProjectBodyContent = styled.div`
   width: 90%;
   margin: 0 auto;
+  p {
+    margin-bottom: 1rem;
+  }
   img {
     width: 100%;
     height: auto;
-    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 `;
@@ -65,6 +67,21 @@ const StyledProjectTechnology = styled.div`
 
 const StyledProjectRoles = styled.div`
   text-align: right;
+`;
+
+const StyledProjectLinks = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.textPrimary};
+    padding: 0.8rem;
+    border: 1px solid ${(props) => props.theme.colors.textPrimary};
+    margin-bottom: 2rem;
+  }
 `;
 
 export default function Project({ project, nav }) {
@@ -89,6 +106,27 @@ export default function Project({ project, nav }) {
               alt={`${project.title} project`}
             />
             <h2>{project?.title}</h2>
+
+            <StyledProjectLinks>
+              {project?.liveSiteUrl && (
+                <a
+                  href={project.liveSiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Live Site
+                </a>
+              )}
+              {project?.sourceCodeUrl && (
+                <a
+                  href={project.sourceCodeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Code
+                </a>
+              )}
+            </StyledProjectLinks>
           </ProjectHeroWrapper>
 
           <ProjectInfoWrapper>
@@ -149,6 +187,8 @@ export async function getStaticProps(context) {
    mainImage,
    slug,
    publishedAt,
+   liveSiteUrl,
+   sourceCodeUrl,
    body,
    projectRoles[]->{title},
    technologies[]->{title},
