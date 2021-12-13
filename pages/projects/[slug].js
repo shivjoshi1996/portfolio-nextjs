@@ -12,6 +12,10 @@ import { urlFor } from '../../lib/sanity';
 const ProjectSection = styled.section`
   background-color: ${(props) => props.theme.colors.background};
   padding-bottom: 2rem;
+
+  p {
+    line-height: 1.5;
+  }
 `;
 
 const StyledViewAllProjectsLink = styled.div`
@@ -49,14 +53,22 @@ const StyledProjectBodyContent = styled.div`
     height: auto;
     margin-bottom: 1rem;
   }
+  a {
+    color: ${(props) => props.theme.colors.textPrimary};
+  }
 `;
 
 const ProjectInfoWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
   display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 1rem;
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const StyledProjectDate = styled.div``;
@@ -85,7 +97,6 @@ const StyledProjectLinks = styled.div`
 `;
 
 export default function Project({ project, nav }) {
-  console.log(project);
   if (nav && project) {
     return (
       <>
@@ -149,7 +160,7 @@ export default function Project({ project, nav }) {
 
             {project?.technologies && (
               <StyledProjectTechnology>
-                <h3>TECHNOLOGIES USED</h3>
+                <h3>STACK</h3>
                 {project?.technologies.map((technology) => (
                   <p key={technology.title}>{technology.title}</p>
                 ))}

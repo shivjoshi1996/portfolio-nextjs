@@ -43,7 +43,7 @@ export default function FeaturedProjects({ featuredProjects }) {
       <h2>Featured Projects</h2>
       <StyledFeaturedProjectsWrapper>
         {featuredProjects.map((project) => (
-          <ProjectCard project={project} />
+          <ProjectCard key={project.title} project={project} />
         ))}
       </StyledFeaturedProjectsWrapper>
       <StyledViewAllLink>
