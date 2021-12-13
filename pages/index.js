@@ -10,6 +10,7 @@ import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
 import MySkillsSection from '../components/MySkillsSection';
 import Footer from '../components/Footer';
+import AboutSection from '../components/AboutSection';
 
 const homeQuery = groq`
   *[_type == "homepage"]{
@@ -58,6 +59,7 @@ export default function Home(props) {
         heroButtons={heroButtons}
         heroImage={heroImage}
       />
+      <AboutSection />
       <MySkillsSection
         developmentTechnologies={developmentTechnologies}
         projectManagementTechnologies={projectManagementTechnologies}
