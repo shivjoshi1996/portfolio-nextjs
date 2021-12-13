@@ -10,16 +10,18 @@ const StyledProjectsContainer = styled.div`
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: ${(props) => props.theme.colors.background};
+`;
+
+const StyledHeadingContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  max-width: 69.375rem;
+  margin-bottom: 2rem;
 
   h2 {
     text-transform: uppercase;
     font-size: 1.5rem;
-    padding-left: 5%;
     margin-bottom: 2rem;
-  }
-  p {
-    margin-bottom: 2rem;
-    padding-left: 5%;
   }
 `;
 
@@ -41,8 +43,13 @@ export default function Projects({ data }) {
     <>
       <Navigation nav={nav} />
       <StyledProjectsContainer>
-        <h2>Projects</h2>
-        <p>Explore a selection of my projects below.</p>
+        <StyledHeadingContainer>
+          <h2>Projects</h2>
+          <p>
+            Explore some of the projects I've helped manage and develop, as well
+            as the stories behind each project.
+          </p>
+        </StyledHeadingContainer>
         <StyledProjectsWrapper>
           {projects.map((project) => (
             <ProjectCard project={project} key={project.title} />
@@ -65,6 +72,7 @@ const ProjectsQuery = groq`
 *[_type == "project"] | order(publishedAt desc) {
   title,
   mainImage,
+  tagline,
   slug,
   publishedAt,
   projectRoles[]->{title},

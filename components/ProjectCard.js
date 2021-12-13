@@ -53,9 +53,15 @@ const StyledRoles = styled.p`
   text-transform: uppercase;
 `;
 
+const StyledTagline = styled.p`
+  margin-top: 1rem;
+  line-height: 1.2;
+`;
+
 export default function ProjectCard({ project }) {
   console.log(project);
-  const { title, mainImage, slug, projectRoles, publishedAt } = project;
+  const { title, mainImage, tagline, slug, projectRoles, publishedAt } =
+    project;
 
   // Get roles, make into a string with commas seperating
   const roles = [];
@@ -92,6 +98,7 @@ export default function ProjectCard({ project }) {
           </Link>
         </StyledImage>
         <StyledRoles>{rolesString}</StyledRoles>
+        <StyledTagline>{tagline}</StyledTagline>
       </StyledFeaturedProject>
     </>
   );

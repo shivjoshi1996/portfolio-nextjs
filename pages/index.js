@@ -11,6 +11,7 @@ import FeaturedProjects from '../components/FeaturedProjects';
 import MySkillsSection from '../components/MySkillsSection';
 import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
+import ContactBanner from '../components/ContactBanner';
 
 const homeQuery = groq`
   *[_type == "homepage"]{
@@ -22,6 +23,7 @@ const homeQuery = groq`
       title,
       slug,
       mainImage,
+      tagline,
       publishedAt,
       projectRoles[]->{title},
     },
@@ -65,6 +67,7 @@ export default function Home(props) {
         projectManagementTechnologies={projectManagementTechnologies}
       />
       <FeaturedProjects featuredProjects={featuredProjects} />
+      <ContactBanner />
       <Footer nav={nav} />
     </>
   );

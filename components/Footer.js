@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const StyledFooter = styled.footer`
   background-color: ${(props) => props.theme.colors.background};
-  padding: 2rem 2rem;
+  padding: 2rem 0;
   border-top: 1px solid ${(props) => props.theme.colors.textPrimary};
 `;
 
@@ -18,7 +18,7 @@ const StyledContentContainer = styled.div`
   display: grid;
   justify-items: center;
   grid-gap: 2rem;
-
+  width: 90%;
   max-width: 69.375rem;
   margin: 0 auto;
 

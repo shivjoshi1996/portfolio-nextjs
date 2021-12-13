@@ -26,6 +26,7 @@ const StyledFeaturedProjectsWrapper = styled.div`
   width: 90%;
   max-width: 69.375rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
 
   @media (min-width: 48rem) {
     display: grid;
@@ -38,6 +39,7 @@ const StyledViewAllLink = styled.div`
   text-align: center;
   a {
     text-decoration: none;
+    text-transform: uppercase;
     color: ${(props) => props.theme.colors.textPrimary};
     text-align: center;
   }
