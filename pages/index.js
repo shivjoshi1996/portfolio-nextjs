@@ -8,7 +8,7 @@ import { getClient } from '../lib/sanity.server';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
-import TechnologiesSection from '../components/TechnologiesSection';
+import MySkillsSection from '../components/MySkillsSection';
 import Footer from '../components/Footer';
 
 const homeQuery = groq`
@@ -24,8 +24,8 @@ const homeQuery = groq`
       publishedAt,
       projectRoles[]->{title},
     },
-    currentTechnologies[] -> {title, mainImage},
-    learningTechnologies[] -> {title, mainImage},
+    developmentTechnologies[] -> {title},
+    projectManagementTechnologies[] -> {title},
   }
 `;
 const NavQuery = groq`
@@ -37,13 +37,14 @@ const NavQuery = groq`
 
 export default function Home(props) {
   const { data } = props;
+  console.log(data);
   const {
     heroHeading,
     heroText,
     heroButtons,
     heroImage,
-    currentTechnologies,
-    learningTechnologies,
+    developmentTechnologies,
+    projectManagementTechnologies,
     featuredProjects,
   } = data.home[0];
 
@@ -57,11 +58,11 @@ export default function Home(props) {
         heroButtons={heroButtons}
         heroImage={heroImage}
       />
-      <FeaturedProjects featuredProjects={featuredProjects} />
-      <TechnologiesSection
-        learningTechnologies={learningTechnologies}
-        currentTechnologies={currentTechnologies}
+      <MySkillsSection
+        developmentTechnologies={developmentTechnologies}
+        projectManagementTechnologies={projectManagementTechnologies}
       />
+      <FeaturedProjects featuredProjects={featuredProjects} />
       <Footer nav={nav} />
     </>
   );
