@@ -16,6 +16,7 @@ const MobileNavigationContainer = styled.div`
   min-height: 10vh;
   width: 90%;
   margin: 0 auto;
+  max-width: 69.375rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,9 +69,10 @@ const NavigationHamburger = styled.div`
 
 const MobileDrawerContainer = styled.div`
   position: absolute;
-  margin-top: 2px;
+  margin-top: 1px;
   width: 100vw;
   height: 90vh;
+
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.textPrimary};
   opacity: ${(props) => props.mobileDrawerOpacity};
@@ -82,6 +84,7 @@ const MobileDrawerContainer = styled.div`
     list-style: none;
     width: 90%;
     margin: 0 auto;
+    max-width: 69.375rem;
   }
   a {
     text-decoration: none;

@@ -8,6 +8,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import { urlFor } from '../../lib/sanity';
+import Footer from '../../components/Footer';
 
 const ProjectSection = styled.section`
   background-color: ${(props) => props.theme.colors.background};
@@ -45,6 +46,7 @@ const ProjectHeroWrapper = styled.div`
 const StyledProjectBodyContent = styled.div`
   width: 90%;
   margin: 0 auto;
+  max-width: 69.375rem;
   p {
     margin-bottom: 1rem;
   }
@@ -61,6 +63,7 @@ const StyledProjectBodyContent = styled.div`
 const ProjectInfoWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+  max-width: 69.375rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
@@ -172,6 +175,7 @@ export default function Project({ project, nav }) {
             <BlockContent blocks={project.body} {...client.config()} />
           </StyledProjectBodyContent>
         </ProjectSection>
+        <Footer nav={nav} />
       </>
     );
   }

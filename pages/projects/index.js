@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
+import Footer from '../../components/Footer';
 import Navigation from '../../components/Navigation';
 import ProjectCard from '../../components/ProjectCard';
 import { getClient } from '../../lib/sanity.server';
@@ -25,6 +26,7 @@ const StyledProjectsContainer = styled.div`
 const StyledProjectsWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+  max-width: 69.375rem;
 
   @media (min-width: 48rem) {
     display: grid;
@@ -47,6 +49,7 @@ export default function Projects({ data }) {
           ))}
         </StyledProjectsWrapper>
       </StyledProjectsContainer>
+      <Footer nav={nav} />
     </>
   );
 }

@@ -25,6 +25,7 @@ const StyledTechnologiesSection = styled.div`
 const StyledTechnologiesWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+  max-width: 69.375rem;
 `;
 
 const TechnologyWrapper = styled.div`

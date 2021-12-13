@@ -8,17 +8,23 @@ const StyledFeaturedProjectsContainer = styled.div`
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: ${(props) => props.theme.colors.background};
+`;
+
+const StyledHeading = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  max-width: 69.375rem;
 
   h2 {
     text-transform: uppercase;
     font-size: 1.5rem;
-    padding-left: 5%;
     margin-bottom: 2rem;
   }
 `;
 
 const StyledFeaturedProjectsWrapper = styled.div`
   width: 90%;
+  max-width: 69.375rem;
   margin: 0 auto;
 
   @media (min-width: 48rem) {
@@ -40,7 +46,9 @@ const StyledViewAllLink = styled.div`
 export default function FeaturedProjects({ featuredProjects }) {
   return (
     <StyledFeaturedProjectsContainer>
-      <h2>Featured Projects</h2>
+      <StyledHeading>
+        <h2>Featured Projects</h2>
+      </StyledHeading>
       <StyledFeaturedProjectsWrapper>
         {featuredProjects.map((project) => (
           <ProjectCard key={project.title} project={project} />
