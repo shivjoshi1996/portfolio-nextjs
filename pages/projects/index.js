@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
+import ContactBanner from '../../components/ContactBanner';
 import Footer from '../../components/Footer';
 import Navigation from '../../components/Navigation';
 import ProjectCard from '../../components/ProjectCard';
@@ -22,6 +23,16 @@ const StyledHeadingContainer = styled.div`
     text-transform: uppercase;
     font-size: 1.5rem;
     margin-bottom: 2rem;
+  }
+
+  p {
+    line-height: 1.5;
+    @media (min-width: 48rem) {
+      width: 50%;
+    }
+    @media (min-width: 69.375rem) {
+      width: 40%;
+    }
   }
 `;
 
@@ -56,6 +67,7 @@ export default function Projects({ data }) {
           ))}
         </StyledProjectsWrapper>
       </StyledProjectsContainer>
+      <ContactBanner />
       <Footer nav={nav} />
     </>
   );
