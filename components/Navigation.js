@@ -107,21 +107,6 @@ const MobileDrawerContainer = styled.div`
   }
 `;
 
-const NavigationContentWrapper = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  color: ${(props) => props.theme.colors.textPrimary};
-  width: 90%;
-  margin: 0 auto;
-  padding: 30px 0px;
-  text-transform: uppercase;
-
-  a {
-    text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
-  }
-`;
-
 const NavigationPagePadding = styled.div`
   padding-bottom: 10vh;
   background-color: ${(props) => props.theme.colors.background};
@@ -182,18 +167,6 @@ export default function Navigation({ nav }) {
             </li>
           ))}
         </MobileDrawerContainer>
-
-        {/*
-      <NavigationContentWrapper>
-        <Link href="/">{nav[0].title}</Link>
-        {nav[0].navItems.map((item) => (
-          <li key={item.text}>
-            <Link href={`${item?.navItemUrl?.linkUrl}`}>{item.text}</Link>
-          </li>
-        ))}
-      </NavigationContentWrapper>
-
-        */}
       </NavigationContainer>
       <NavigationPagePadding />
     </>
