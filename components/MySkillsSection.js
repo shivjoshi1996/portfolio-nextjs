@@ -12,7 +12,6 @@ const StyledMySkillsSection = styled.div`
     margin-bottom: 0.5rem;
   }
   h2 {
-    font-size: 1.5rem;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
   }
@@ -22,10 +21,6 @@ const StyledMySkillsSection = styled.div`
 
     @media (min-width: 48rem) {
       width: 70%;
-    }
-
-    @media (min-width: 69.375rem) {
-      width: 40%;
     }
   }
   h3 {
@@ -59,10 +54,19 @@ const StyledSkillWrapper = styled.div`
 const StyledSkills = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  column-gap: 1rem;
+
+  @media (min-width: 48rem) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
   li {
     margin-bottom: 0.5rem;
+
+    p {
+      width: 100%;
+    }
   }
 `;
 
@@ -71,7 +75,6 @@ export default function MySkillsSection({
   projectManagementTechnologies,
 }) {
   // TODO - Split technology into seperate component
-  console.log(developmentTechnologies, projectManagementTechnologies);
   return (
     <StyledMySkillsSection>
       <StyledMySkillsWrapper>
@@ -89,7 +92,9 @@ export default function MySkillsSection({
             <h3>DEVELOPMENT</h3>
             <StyledSkills>
               {developmentTechnologies.map((technology) => (
-                <li key={technology.title}>{technology.title}</li>
+                <li key={technology.title}>
+                  <p>{technology.title}</p>
+                </li>
               ))}
             </StyledSkills>
           </StyledSkillWrapper>
@@ -97,7 +102,9 @@ export default function MySkillsSection({
             <h3>MANAGEMENT</h3>
             <StyledSkills>
               {projectManagementTechnologies.map((technology) => (
-                <li key={technology.title}>{technology.title}</li>
+                <li key={technology.title}>
+                  <p>{technology.title}</p>
+                </li>
               ))}
             </StyledSkills>
           </StyledSkillWrapper>

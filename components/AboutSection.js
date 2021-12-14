@@ -11,7 +11,6 @@ const StyledAboutWrapper = styled.div`
   max-width: 69.375rem;
 
   h2 {
-    font-size: 1.5rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
   }
