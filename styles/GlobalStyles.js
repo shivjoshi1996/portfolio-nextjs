@@ -49,11 +49,13 @@ const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.colors.textPrimary};
     scroll-behaviour: smooth;
   }
-
   h1 {
     font-size: 2.5rem;
-    @media (min-width: 1080px) {
+    @media (min-width: 69.375rem) {
       font-size: 4rem;
+    }
+    @media (min-width: 69.375rem) {
+      font-size: 4.2rem;
     }
     
   }
@@ -62,10 +64,38 @@ const GlobalStyles = createGlobalStyle`
     @media (min-width: 48rem) {
       font-size: 3rem;
     }
+    @media (min-width: 69.375rem) {
+      font-size: 4rem;
+    }
   }
   h3 {
     font-size: 1.125rem;
+
+    @media (min-width: 48rem) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 69.375rem) {
+      font-size: 1.8rem;
+    }
   }
+
+
+  p {
+    @media (min-width: 48rem) {
+      font-size: 1.3rem;
+    }
+    @media (min-width: 69.375rem) {
+      font-size: 1.8rem;
+    }
+  }
+
+  a {
+    @media (min-width: 48rem) {
+      font-size: 1.3rem;
+    }
+  }
+
 `;
 
 export default GlobalStyles;

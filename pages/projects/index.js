@@ -19,9 +19,8 @@ const StyledHeadingContainer = styled.div`
   max-width: 69.375rem;
   margin-bottom: 3rem;
 
-  h2 {
+  h1 {
     text-transform: uppercase;
-    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
@@ -55,7 +54,7 @@ export default function Projects({ data }) {
       <Navigation nav={nav} />
       <StyledProjectsContainer>
         <StyledHeadingContainer>
-          <h2>Projects</h2>
+          <h1>Projects</h1>
           <p>
             Explore some of the projects I've helped manage and develop, as well
             as the stories behind each project.
