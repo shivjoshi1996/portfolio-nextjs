@@ -122,12 +122,11 @@ const ProjectInfoWrapper = styled.div`
   max-width: 69.375rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 1rem;
+  grid-template-columns: 1fr 3fr;
+  margin-bottom: 3rem;
 
   @media (min-width: 48rem) {
     grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 3rem;
   }
 
   h3 {
@@ -155,10 +154,12 @@ const StyledProjectTechnology = styled.div`
 
   ul {
     display: flex;
+    gap: 0.5rem;
     flex-wrap: wrap;
 
     @media (min-width: 48rem) {
       flex-direction: column;
+      gap: unset;
     }
   }
 `;
@@ -213,7 +214,7 @@ export default function Project({ project, nav }) {
             {project?.publishedAt && (
               <StyledProjectDate>
                 <h3>DATE</h3>
-                <p>{project?.publishedAt}</p>
+                <p>{project?.publishedAt?.split('-')[0]}</p>
               </StyledProjectDate>
             )}
 
