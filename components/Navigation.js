@@ -52,7 +52,7 @@ const NavigationHamburger = styled.div`
     &:hover {
       #rect2,
       #rect3 {
-        width: 100px;
+        width: 100%;
       }
     }
   }
@@ -67,10 +67,13 @@ const NavigationHamburger = styled.div`
     #rect1 {
       transform-box: fill-box;
       transform-origin: center;
+      transform: rotate(${(props) => (props.isOpen ? '15deg' : '0deg')});
     }
     #rect3 {
       transform-box: fill-box;
       transform-origin: center;
+      transform: rotate(${(props) => (props.isOpen ? '-15deg' : '0deg')});
+    }
     }
   }
 `;
@@ -138,7 +141,7 @@ export default function Navigation({ nav }) {
           <NavigationLogo>
             <Link href="/">{nav[0].title}</Link>
           </NavigationLogo>
-          <NavigationHamburger>
+          <NavigationHamburger isOpen={isOpen}>
             <button type="button" onClick={handleHamburgerClick}>
               <svg viewBox="0 0 50 30" width="50" height="30" fill="%23ddd">
                 <rect
@@ -146,7 +149,6 @@ export default function Navigation({ nav }) {
                   width="100%"
                   height="20%"
                   y={isOpen ? '20%' : '0'}
-                  transform={isOpen ? 'rotate(15)' : null}
                   fill="%23ddd"
                 />
                 <rect
@@ -159,10 +161,9 @@ export default function Navigation({ nav }) {
                 />
                 <rect
                   id="rect3"
-                  y={isOpen ? '40%' : '80%'}
+                  y={isOpen ? '60%' : '80%'}
                   width={isOpen ? '100%' : '32%'}
                   height="20%"
-                  transform={isOpen ? 'rotate(-15)' : null}
                   fill="%23ddd"
                 />
               </svg>
