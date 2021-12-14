@@ -95,7 +95,10 @@ export default function ProjectCard({ project }) {
         <StyledImage>
           <Link href={`/projects/${slug.current}`} passHref>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={urlFor(mainImage).url()} alt={`${title} project`} />
+            <img
+              src={urlFor(mainImage).width(539).height(474).url()}
+              alt={`${title} project`}
+            />
           </Link>
         </StyledImage>
         <StyledRoles>{rolesString}</StyledRoles>
