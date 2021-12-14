@@ -27,7 +27,14 @@ const NavigationLogo = styled.div`
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
-    font-size: 1rem;
+    font-size: 1.2rem;
+
+    @media (min-width: 48rem) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 69.375rem) {
+      font-size: 1.7rem;
+    }
   }
 `;
 
@@ -116,7 +123,6 @@ const NavigationPagePadding = styled.div`
 `;
 
 export default function Navigation({ nav }) {
-  console.log(`navigation ${nav}`);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleHamburgerClick = () => {

@@ -26,6 +26,7 @@ const StyledProjectInfoWrapper = styled.div`
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
+    cursor: pointer;
   }
 `;
 
