@@ -88,6 +88,7 @@ const MobileDrawerContainer = styled.div`
   color: ${(props) => props.theme.colors.textPrimary};
   opacity: ${(props) => props.mobileDrawerOpacity};
   transform: translateX(${(props) => props.mobileDrawerPosition});
+  visibility: ${(props) => props.visibility};
   transition: 0.8s;
 
   li {
@@ -173,6 +174,7 @@ export default function Navigation({ nav }) {
         <MobileDrawerContainer
           mobileDrawerOpacity={isOpen ? '1' : '0'}
           mobileDrawerPosition={isOpen ? '0' : '100vw'}
+          visibility={isOpen ? 'visible' : 'hidden'}
         >
           {nav[0].navItems.map((item) => (
             <li key={item.text}>
