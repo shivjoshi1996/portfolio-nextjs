@@ -8,8 +8,8 @@ import ProjectCard from '../../components/ProjectCard';
 import { getClient } from '../../lib/sanity.server';
 
 const StyledProjectsContainer = styled.div`
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   background-color: ${(props) => props.theme.colors.background};
 `;
 
@@ -17,12 +17,12 @@ const StyledHeadingContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   h2 {
     text-transform: uppercase;
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   p {
