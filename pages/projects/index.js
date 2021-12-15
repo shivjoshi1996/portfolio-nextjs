@@ -45,6 +45,12 @@ const StyledProjectsWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+
+  @media (min-width: 48rem) {
+    > div:nth-child(even) {
+      margin-top: 20rem;
+    }
+  }
 `;
 
 export default function Projects({ data }) {

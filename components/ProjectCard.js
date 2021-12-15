@@ -6,9 +6,7 @@ import Img from 'next/image';
 import { urlFor } from '../lib/sanity';
 import client from '../lib/client';
 
-const StyledFeaturedProject = styled.div`
-  margin-bottom: 2rem;
-`;
+const StyledFeaturedProject = styled.div``;
 
 const StyledProjectDateWrapper = styled.div`
   display: flex;
