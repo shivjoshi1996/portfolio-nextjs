@@ -9,67 +9,54 @@ const StyledHeroWrapper = styled.div`
 `;
 
 const StyledHero = styled.div`
-  padding-top: 2rem;
+  padding-top: 3rem;
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: 90%;
+  max-width: 69.375rem;
 `;
 
 const StyledHeroText = styled.div`
   flex: 1;
   color: ${(props) => props.theme.colors.textPrimary};
-  h2 {
-    font-size: clamp(2rem, 2vw, 4rem);
-    margin-bottom: 1rem;
+  h1 {
+    margin-bottom: 0.5rem;
+    @media (min-width: 48rem) {
+      margin-bottom: 2rem;
+    }
   }
   p {
-    font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 1rem;
+
+    @media (min-width: 48rem) {
+      width: 80%;
+      margin-bottom: 2rem;
+    }
   }
 
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
-    padding: 5px;
+    padding: 0.5rem;
     border: 2px solid ${(props) => props.theme.colors.textPrimary};
-  }
-`;
-
-const StyledHeroImage = styled.div`
-  flex: 1;
-  height: 200px;
-  width: 300px;
-
-  img {
-    height: 100%;
-    width: 100%;
   }
 `;
 
 const StyledHeroButtons = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 1rem;
 `;
 
-export default function Hero({
-  heroHeading,
-  heroText,
-  heroButtons,
-  heroImage,
-}) {
+export default function Hero({ heroHeading, heroText, heroButtons }) {
   return (
     <StyledHeroWrapper>
       <StyledHero>
-        <StyledHeroImage>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={urlFor(heroImage).url()} alt="" />
-        </StyledHeroImage>
         <StyledHeroText>
-          <h2>{heroHeading}</h2>
+          <h1>{heroHeading}</h1>
           <p>{heroText}</p>
           <StyledHeroButtons>
             {heroButtons.map((button) => (

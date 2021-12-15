@@ -51,11 +51,11 @@ const GlobalStyles = createGlobalStyle`
   }
   h1 {
     font-size: 2.5rem;
-    @media (min-width: 69.375rem) {
-      font-size: 4rem;
+    @media (min-width: 48rem) {
+      font-size: 4.5rem;
     }
     @media (min-width: 69.375rem) {
-      font-size: 4.2rem;
+      font-size: 5rem;
     }
     
   }
