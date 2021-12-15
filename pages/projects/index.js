@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
+import Head from 'next/head';
 import ContactBanner from '../../components/ContactBanner';
 import Footer from '../../components/Footer';
 import Navigation from '../../components/Navigation';
@@ -57,6 +58,9 @@ export default function Projects({ data }) {
   const { projects, nav } = data;
   return (
     <>
+      <Head>
+        <title>Shivam Joshi | Projects</title>
+      </Head>
       <Navigation nav={nav} />
       <StyledProjectsContainer>
         <StyledHeadingContainer>

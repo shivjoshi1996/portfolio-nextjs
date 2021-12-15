@@ -6,6 +6,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Shivam Joshi | Front End Web Developer</title>
+        <meta
+          name="description"
+          content="Shivam Joshi is a Front End Web Developer based in Vancouver, BC. He specializes in building modern, responsive websites."
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

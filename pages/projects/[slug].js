@@ -7,6 +7,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import BlockContent from '@sanity/block-content-to-react';
 import { useNextSanityImage } from 'next-sanity-image';
 import Img from 'next/image';
+import Head from 'next/head';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import { urlFor } from '../../lib/sanity';
@@ -178,6 +179,9 @@ export default function Project({ project, nav }) {
   if (nav && project) {
     return (
       <>
+        <Head>
+          <title>Shivam Joshi | {project.title}</title>
+        </Head>
         <Navigation nav={nav} />
         <ProjectSection>
           <StyledViewAllProjectsLink>
