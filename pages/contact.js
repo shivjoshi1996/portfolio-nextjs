@@ -69,7 +69,13 @@ export default function Contact({ data }) {
               </h3>
               <h3>
                 Check out my <br />
-                resume
+                <a
+                  href={data.contact[0].resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  resume
+                </a>
               </h3>
             </StyledContactOptions>
             <StyledContactFormWrapper>
@@ -91,13 +97,18 @@ const NavQuery = groq`
   }
 `;
 
+const contactQuery = groq` *[_type == "contact"] {
+ "resume": resume.asset->url,
+}`;
+
 export async function getStaticProps({ preview = false }) {
   const nav = await getClient(preview).fetch(NavQuery);
+  const contact = await getClient(preview).fetch(contactQuery);
 
   return {
     props: {
       preview,
-      data: { nav },
+      data: { nav, contact },
     },
   };
 }
