@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
@@ -62,7 +63,7 @@ const NavigationHamburger = styled.div`
     #rect1,
     #rect2,
     #rect3 {
-      transition: 0.5s;
+      transition: 0.4s;
     }
     #rect1 {
       transform-box: fill-box;
@@ -89,13 +90,22 @@ const MobileDrawerContainer = styled.div`
   opacity: ${(props) => props.mobileDrawerOpacity};
   transform: translateX(${(props) => props.mobileDrawerPosition});
   visibility: ${(props) => props.visibility};
-  transition: 0.8s;
+  transition: 0.4s;
+`;
 
+const MobileNavLinksWrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  max-width: 69.375rem;
+`;
+
+const MobileNavLinks = styled.ul`
+  @media (min-width: 48rem) {
+    margin-top: 3rem;
+  }
   li {
     padding: 1rem 0rem;
     list-style: none;
-    width: 90%;
-    margin: 0 auto;
     max-width: 69.375rem;
   }
   a {
@@ -103,7 +113,36 @@ const MobileDrawerContainer = styled.div`
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.textPrimary};
     border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
-    font-size: clamp(2rem, 2vw, 4rem);
+    font-size: 2rem;
+
+    @media (min-width: 48rem) {
+      font-size: 5rem;
+    }
+  }
+`;
+
+const StyledSocialLinks = styled.ul`
+  margin-top: 2rem;
+  max-width: 69.375rem;
+  display: flex;
+  gap: 2rem;
+
+  @media (min-width: 48rem) {
+    margin-top: 4rem;
+    gap: 5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.textPrimary};
+  }
+
+  svg {
+    font-size: 1.6rem;
+
+    @media (min-width: 48rem) {
+      font-size: 5rem;
+    }
   }
 `;
 
@@ -161,11 +200,32 @@ export default function Navigation({ nav }) {
           mobileDrawerPosition={isOpen ? '0' : '100vw'}
           visibility={isOpen ? 'visible' : 'hidden'}
         >
-          {nav[0].navItems.map((item) => (
-            <li key={item.text}>
-              <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
-            </li>
-          ))}
+          <MobileNavLinksWrapper>
+            <MobileNavLinks>
+              {nav[0].navItems.map((item) => (
+                <li key={item.text}>
+                  <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
+                </li>
+              ))}
+            </MobileNavLinks>
+            <StyledSocialLinks>
+              <li>
+                <a href="https://github.com/shivjoshi1996">
+                  <FaGithub />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/shivam-joshi/">
+                  <FaLinkedin />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/Shiv_J">
+                  <FaTwitter />
+                </a>
+              </li>
+            </StyledSocialLinks>
+          </MobileNavLinksWrapper>
         </MobileDrawerContainer>
       </NavigationContainer>
       <NavigationPagePadding />
