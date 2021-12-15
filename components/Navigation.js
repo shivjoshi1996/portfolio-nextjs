@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import gsap from 'gsap';
 
 const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
@@ -25,6 +26,7 @@ const MobileNavigationContainer = styled.div`
 
 const NavigationLogo = styled.div`
   padding: 1rem 0rem;
+  opacity: 0;
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
@@ -159,14 +161,47 @@ export default function Navigation({ nav }) {
     console.log(isOpen);
   };
 
+  const el = useRef();
+  const q = gsap.utils.selector(el);
+  const tl = useRef();
+
+  useEffect(() => {
+    tl.current = gsap
+      .timeline()
+      .fromTo(
+        q('.logo'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      )
+      .fromTo(
+        q('.hamburger'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      );
+  }, []);
+
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer ref={el}>
         <MobileNavigationContainer>
-          <NavigationLogo>
+          <NavigationLogo className="logo">
             <Link href="/">{nav[0].title}</Link>
           </NavigationLogo>
-          <NavigationHamburger isOpen={isOpen}>
+          <NavigationHamburger className="hamburger" isOpen={isOpen}>
             <button type="button" onClick={handleHamburgerClick}>
               <svg viewBox="0 0 50 30" width="50" height="30" fill="%23ddd">
                 <rect
