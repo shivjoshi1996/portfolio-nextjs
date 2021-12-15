@@ -11,11 +11,47 @@ const StyledContactSection = styled.section`
 `;
 
 const StyledContactContainer = styled.div`
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
+  min-height: 70vh;
+
+  @media (min-width: 69.375rem) {
+    padding: 4rem 0;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+
+    @media (min-width: 69.375rem) {
+      margin-bottom: 4rem;
+    }
+  }
+`;
+
+const StyledContactInfoGrid = styled.div`
+  @media (min-width: 69.375rem) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
+const StyledContactOptions = styled.div`
+  margin-bottom: 2rem;
+  h3 {
+    margin-bottom: 1rem;
+  }
+  a {
+    font-size: inherit;
+    color: ${(props) => props.theme.colors.textPrimary};
+  }
+`;
+
+const StyledContactFormWrapper = styled.div`
+  h3 {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export default function Contact({ data }) {
@@ -25,7 +61,22 @@ export default function Contact({ data }) {
       <StyledContactSection>
         <StyledContactContainer>
           <h1>CONTACT ME</h1>
-          <ContactForm />
+          <StyledContactInfoGrid>
+            <StyledContactOptions>
+              <h3>
+                Email me at <br />
+                <a href="mailto:shiv@shivjoshi.com">hello@shivamjoshi.com</a>
+              </h3>
+              <h3>
+                Check out my <br />
+                resume
+              </h3>
+            </StyledContactOptions>
+            <StyledContactFormWrapper>
+              <h3>Or, get in touch here:</h3>
+              <ContactForm />
+            </StyledContactFormWrapper>
+          </StyledContactInfoGrid>
         </StyledContactContainer>
       </StyledContactSection>
       <Footer nav={data.nav} />

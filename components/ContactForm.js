@@ -16,7 +16,7 @@ const StyledContactForm = styled.form`
     height: 30px;
     background-color: ${(props) => props.theme.colors.background};
     border: none;
-    border-bottom: 1px dotted white;
+    border-bottom: 1px solid white;
     margin-bottom: 1.5rem;
     font-size: 1rem;
     color: ${(props) => props.theme.colors.textPrimary};
@@ -27,7 +27,7 @@ const StyledContactForm = styled.form`
     width: 100%;
     height: 100px;
     border: none;
-    border-bottom: 1px dotted white;
+    border-bottom: 1px solid white;
     background-color: ${(props) => props.theme.colors.background};
     resize: none;
     font-size: 1rem;
