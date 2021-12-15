@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import Link from 'next/link';
+import { useNextSanityImage } from 'next-sanity-image';
+import Img from 'next/image';
 import { urlFor } from '../lib/sanity';
+import client from '../lib/client';
 
 const StyledFeaturedProject = styled.div`
   margin-bottom: 2rem;
@@ -60,7 +63,8 @@ const StyledTagline = styled.p`
 `;
 
 export default function ProjectCard({ project }) {
-  console.log(project);
+  const imageProps = useNextSanityImage(client.config(), project.mainImage);
+
   const { title, mainImage, tagline, slug, projectRoles, publishedAt } =
     project;
 
@@ -94,10 +98,10 @@ export default function ProjectCard({ project }) {
         </StyledProjectInfoWrapper>
         <StyledImage>
           <Link href={`/projects/${slug.current}`} passHref>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={urlFor(mainImage).width(539).height(474).url()}
-              alt={`${title} project`}
+            <Img
+              {...imageProps}
+              layout="responsive"
+              sizes="(max-width: 1110px) 100vw, 539px"
             />
           </Link>
         </StyledImage>

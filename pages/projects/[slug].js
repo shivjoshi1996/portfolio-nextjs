@@ -168,9 +168,7 @@ const StyledProjectTechnology = styled.div`
 
 export default function Project({ project, nav }) {
   const { mainImage = '' } = project;
-  console.log(mainImage);
   const imageProps = useNextSanityImage(client.config(), mainImage);
-  console.log(imageProps);
 
   if (nav && project) {
     return (
