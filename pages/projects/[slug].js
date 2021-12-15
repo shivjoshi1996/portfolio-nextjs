@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -167,9 +167,11 @@ const StyledProjectTechnology = styled.div`
 `;
 
 export default function Project({ project, nav }) {
-  const imageProps = useNextSanityImage(client.config(), project.mainImage);
-
+  const { mainImage = '' } = project;
+  console.log(mainImage);
+  const imageProps = useNextSanityImage(client.config(), mainImage);
   console.log(imageProps);
+
   if (nav && project) {
     return (
       <>
@@ -188,7 +190,7 @@ export default function Project({ project, nav }) {
             <Img
               {...imageProps}
               layout="responsive"
-              sizes="(max-width: 1110px) 100vw, 547px"
+              sizes="(max-width: 1110px) 100vw, 549px"
             />
             <StyledProjectHeroInfo>
               <h2>{project?.title}</h2>
@@ -270,7 +272,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   };
 }
 
