@@ -17,7 +17,6 @@ const StyledHeading = styled.div`
 
   h2 {
     text-transform: uppercase;
-    font-size: 1.5rem;
     margin-bottom: 2rem;
   }
 `;

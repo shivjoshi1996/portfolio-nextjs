@@ -62,10 +62,10 @@ const GlobalStyles = createGlobalStyle`
   h2 {
     font-size: 2rem;
     @media (min-width: 48rem) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     @media (min-width: 69.375rem) {
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
   h3 {
@@ -84,9 +84,6 @@ const GlobalStyles = createGlobalStyle`
   p {
     @media (min-width: 48rem) {
       font-size: 1.3rem;
-    }
-    @media (min-width: 69.375rem) {
-      font-size: 1.5rem;
     }
   }
 

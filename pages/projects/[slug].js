@@ -51,7 +51,7 @@ const ProjectHeroWrapper = styled.div`
   img {
     width: 100%;
     height: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
 
     @media (min-width: 48rem) {
       grid-area: image;
@@ -61,6 +61,11 @@ const ProjectHeroWrapper = styled.div`
 `;
 
 const StyledProjectHeroInfo = styled.div`
+
+  @media (max-width: 767.9px) {
+    margin-top: 2rem;
+  }
+
   @media (min-width: 48rem) {
     grid-area: info;
     height: 100%;
@@ -184,7 +189,6 @@ export default function Project({ project, nav }) {
             </Link>
           </StyledViewAllProjectsLink>
           <ProjectHeroWrapper>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <Img
               {...imageProps}
               layout="responsive"

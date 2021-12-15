@@ -40,7 +40,6 @@ const NavQuery = groq`
 
 export default function Home(props) {
   const { data } = props;
-  console.log(data);
   const {
     heroHeading,
     heroText,
