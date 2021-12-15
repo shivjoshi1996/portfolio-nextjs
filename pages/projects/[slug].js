@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { BiArrowBack } from 'react-icons/bi';
 import BlockContent from '@sanity/block-content-to-react';
+import { useNextSanityImage } from 'next-sanity-image';
+import Img from 'next/image';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import { urlFor } from '../../lib/sanity';
@@ -108,8 +110,8 @@ const StyledProjectBodyContent = styled.div`
   }
   img {
     width: 100%;
-    height: auto;
     margin-bottom: 1rem;
+    object-fit: cover;
   }
   a {
     color: ${(props) => props.theme.colors.textPrimary};
@@ -165,6 +167,9 @@ const StyledProjectTechnology = styled.div`
 `;
 
 export default function Project({ project, nav }) {
+  const imageProps = useNextSanityImage(client.config(), project.mainImage);
+
+  console.log(imageProps);
   if (nav && project) {
     return (
       <>
@@ -180,9 +185,10 @@ export default function Project({ project, nav }) {
           </StyledViewAllProjectsLink>
           <ProjectHeroWrapper>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={urlFor(project.mainImage).url()}
-              alt={`${project.title} project`}
+            <Img
+              {...imageProps}
+              layout="responsive"
+              sizes="(max-width: 1110px) 100vw, 547px"
             />
             <StyledProjectHeroInfo>
               <h2>{project?.title}</h2>
