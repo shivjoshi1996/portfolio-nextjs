@@ -69,7 +69,6 @@ const StyledSkills = styled.ul`
   }
 
   li {
-    opacity: 0;
     margin-bottom: 0.5rem;
 
     p {

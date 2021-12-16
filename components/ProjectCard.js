@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { useNextSanityImage } from 'next-sanity-image';
 import Img from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useEffect, useRef } from 'react';
 import { urlFor } from '../lib/sanity';
 import client from '../lib/client';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledFeaturedProject = styled.div`
   @media (max-width: 47.8125rem) {
@@ -19,6 +24,10 @@ const StyledProjectDateWrapper = styled.div`
   font-size: 0.8rem;
   margin-bottom: 1rem;
 
+  span {
+    opacity: 0;
+  }
+
   .datedivider {
     background-color: ${(props) => props.theme.colors.textPrimary};
     height: 1px;
@@ -27,6 +36,7 @@ const StyledProjectDateWrapper = styled.div`
 `;
 
 const StyledProjectInfoWrapper = styled.div`
+  opacity: 0;
   margin-bottom: 0.5rem;
   a {
     text-decoration: none;
@@ -54,12 +64,14 @@ const StyledImage = styled.div`
 `;
 
 const StyledRoles = styled.p`
+  opacity: 0;
   text-align: right;
   font-size: 0.8rem;
   text-transform: uppercase;
 `;
 
 const StyledTagline = styled.p`
+  opacity: 0;
   margin-top: 1rem;
   line-height: 1.2;
 `;
@@ -90,15 +102,17 @@ export default function ProjectCard({ project }) {
 
   return (
     <>
-      <StyledFeaturedProject key={title}>
+      <StyledFeaturedProject key={title} className="project-card">
         <StyledProjectDateWrapper>
-          <span>{publishedAt?.split('-')[0]}</span>
+          <span className="project-card-date">
+            {publishedAt?.split('-')[0]}
+          </span>
           <span className="datedivider" />
         </StyledProjectDateWrapper>
-        <StyledProjectInfoWrapper>
+        <StyledProjectInfoWrapper className="project-name">
           <Link href={`/projects/${slug.current}`}>{title}</Link>
         </StyledProjectInfoWrapper>
-        <StyledImage>
+        <StyledImage className="project-image">
           <Link href={`/projects/${slug.current}`} passHref>
             <div>
               <Img
@@ -109,8 +123,8 @@ export default function ProjectCard({ project }) {
             </div>
           </Link>
         </StyledImage>
-        <StyledRoles>{rolesString}</StyledRoles>
-        <StyledTagline>{tagline}</StyledTagline>
+        <StyledRoles className="project-roles">{rolesString}</StyledRoles>
+        <StyledTagline className="project-tagline">{tagline}</StyledTagline>
       </StyledFeaturedProject>
     </>
   );
