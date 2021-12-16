@@ -207,12 +207,12 @@ export default function Navigation({ nav }) {
         .timeline()
         .to(q('.navlink'), {
           opacity: 1,
-          duration: 0.5,
-          stagger: 0.5,
+          duration: 0.3,
+          stagger: 0.3,
         })
         .to(q('.sociallink'), {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.3,
           stagger: 0.2,
         });
     }
