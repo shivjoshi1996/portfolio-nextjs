@@ -100,11 +100,13 @@ export default function ProjectCard({ project }) {
         </StyledProjectInfoWrapper>
         <StyledImage>
           <Link href={`/projects/${slug.current}`} passHref>
-            <Img
-              {...imageProps}
-              layout="responsive"
-              sizes="(max-width: 1110px) 100vw, 539px"
-            />
+            <div>
+              <Img
+                {...imageProps}
+                layout="responsive"
+                sizes="(max-width: 1110px) 100vw, 539px"
+              />
+            </div>
           </Link>
         </StyledImage>
         <StyledRoles>{rolesString}</StyledRoles>
