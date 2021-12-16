@@ -74,6 +74,7 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
           y: 0,
           duration: 0.5,
           delay: 0.8,
+          ease: 'power1.easeOut',
         }
       )
       .fromTo(
@@ -86,6 +87,7 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
           opacity: 1,
           y: 0,
           duration: 0.5,
+          ease: 'power1.easeOut',
         }
       )
       .fromTo(
@@ -98,6 +100,7 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
           opacity: 1,
           y: 0,
           duration: 0.5,
+          ease: 'power1.easeOut',
         }
       );
   }, []);

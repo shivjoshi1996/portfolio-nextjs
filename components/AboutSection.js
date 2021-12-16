@@ -46,7 +46,7 @@ export default function AboutSection() {
     gsap.fromTo(
       aboutRef.current,
       { opacity: 0, y: 50 },
-      { y: 0, opacity: 1, duration: 1.5, delay: 2 }
+      { y: 0, opacity: 1, duration: 1.5, delay: 2, ease: 'power1.easeOut' }
     );
   }, []);
 

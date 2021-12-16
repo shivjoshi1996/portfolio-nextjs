@@ -163,7 +163,6 @@ export default function Navigation({ nav }) {
 
   const handleHamburgerClick = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   const el = useRef();
