@@ -52,6 +52,27 @@ const StyledViewAllLink = styled.div`
 export default function FeaturedProjects({ featuredProjects }) {
   const el = useRef();
   const projectCardTl = useRef();
+  const featuredHeading = useRef();
+
+  useEffect(() => {
+    gsap.fromTo(
+      featuredHeading.current,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: featuredHeading.current,
+        },
+      }
+    );
+  });
+
+  // PROJECT CARDS ANIMATION
 
   useEffect(() => {
     const projectsGSAP = gsap.utils.toArray('.project-card');
@@ -141,7 +162,7 @@ export default function FeaturedProjects({ featuredProjects }) {
   return (
     <StyledFeaturedProjectsContainer>
       <StyledHeading>
-        <h2>Featured Projects</h2>
+        <h2 ref={featuredHeading}>Featured Projects</h2>
       </StyledHeading>
       <StyledFeaturedProjectsWrapper ref={el}>
         {featuredProjects.map((project) => (

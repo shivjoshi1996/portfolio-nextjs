@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import gsap from 'gsap';
@@ -200,7 +200,7 @@ export default function Navigation({ nav }) {
 
   const navLinksTl = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpen) {
       navLinksTl.current = gsap
         .timeline()

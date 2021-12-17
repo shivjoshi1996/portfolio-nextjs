@@ -2,7 +2,7 @@
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ContactBanner from '../../components/ContactBanner';
@@ -68,7 +68,7 @@ export default function Projects({ data }) {
   const headingRef = useRef();
   const q = gsap.utils.selector(headingRef);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.fromTo(
       q('.project-heading'),
       { opacity: 0, y: 20 },
@@ -81,7 +81,7 @@ export default function Projects({ data }) {
   const el = useRef();
   const projectCardTl = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const projectsGSAP = gsap.utils.toArray('.project-card');
 
     projectsGSAP.forEach((projectGSAP) => {

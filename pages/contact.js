@@ -3,7 +3,7 @@ import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
@@ -62,7 +62,7 @@ export default function Contact({ data }) {
   const q = gsap.utils.selector(el);
   const contactTl = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     contactTl.current = gsap
       .timeline()
       .fromTo(
