@@ -2,6 +2,8 @@
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
+import gsap from 'gsap';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
@@ -56,24 +58,61 @@ const StyledContactFormWrapper = styled.div`
 `;
 
 export default function Contact({ data }) {
+  const el = useRef();
+  const q = gsap.utils.selector(el);
+  const contactTl = useRef();
+
+  useLayoutEffect(() => {
+    contactTl.current = gsap
+      .timeline()
+      .fromTo(
+        q('.contact-heading'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      )
+      .fromTo(
+        q('.contact-option'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.5,
+        }
+      );
+  }, []);
+
   return (
     <>
       <Head>
         <title>Shivam Joshi | Contact Me</title>
       </Head>
       <Navigation nav={data.nav} />
-      <StyledContactSection>
+      <StyledContactSection ref={el}>
         <StyledContactContainer>
-          <h1>CONTACT ME</h1>
+          <h1 className="contact-heading">CONTACT ME</h1>
           <StyledContactInfoGrid>
             <StyledContactOptions>
-              <h3>
+              <h3 className="contact-option">
                 Email me at <br />
-                <a href="mailto:shiv@shivjoshi.com">hello@shivamjoshi.com</a>
+                <a className="contact-option" href="mailto:shiv@shivjoshi.com">
+                  hello@shivamjoshi.com
+                </a>
               </h3>
-              <h3>
+              <h3 className="contact-option">
                 Check out my <br />
                 <a
+                  className="contact-option"
                   href={data.contact[0].resume}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -82,7 +121,7 @@ export default function Contact({ data }) {
                 </a>
               </h3>
             </StyledContactOptions>
-            <StyledContactFormWrapper>
+            <StyledContactFormWrapper className="contact-option">
               <h3>Or, get in touch here:</h3>
               <ContactForm />
             </StyledContactFormWrapper>

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 
 const StyledAboutSection = styled.section`
   background-color: ${(props) => props.theme.colors.background};
@@ -6,6 +8,7 @@ const StyledAboutSection = styled.section`
 `;
 
 const StyledAboutWrapper = styled.div`
+  opacity: 0;
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
@@ -37,9 +40,19 @@ const StyledParagraphWrapper = styled.div`
 `;
 
 export default function AboutSection() {
+  const aboutRef = useRef();
+
+  useEffect(() => {
+    gsap.fromTo(
+      aboutRef.current,
+      { opacity: 0, y: 50 },
+      { y: 0, opacity: 1, duration: 1.5, delay: 2, ease: 'power1.easeOut' }
+    );
+  }, []);
+
   return (
     <StyledAboutSection>
-      <StyledAboutWrapper>
+      <StyledAboutWrapper className="about-section" ref={aboutRef}>
         <h2>About Me</h2>
         <StyledAboutGrid>
           <StyledParagraphWrapper>

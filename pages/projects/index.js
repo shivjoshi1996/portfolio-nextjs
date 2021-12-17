@@ -2,11 +2,16 @@
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ContactBanner from '../../components/ContactBanner';
 import Footer from '../../components/Footer';
 import Navigation from '../../components/Navigation';
 import ProjectCard from '../../components/ProjectCard';
 import { getClient } from '../../lib/sanity.server';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledProjectsContainer = styled.div`
   padding-top: 3rem;
@@ -23,10 +28,12 @@ const StyledHeadingContainer = styled.div`
   h1 {
     text-transform: uppercase;
     margin-bottom: 1rem;
+    opacity: 0;
   }
 
   p {
     line-height: 1.5;
+    opacity: 0;
     @media (min-width: 48rem) {
       width: 50%;
     }
@@ -56,6 +63,109 @@ const StyledProjectsWrapper = styled.div`
 
 export default function Projects({ data }) {
   const { projects, nav } = data;
+
+  // Heading GSAP
+  const headingRef = useRef();
+  const q = gsap.utils.selector(headingRef);
+
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      q('.project-heading'),
+      { opacity: 0, y: 20 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power1.easeOut', stagger: 0.5 }
+    );
+  }, []);
+
+  // PROJECT CARDS GSAP
+
+  const el = useRef();
+  const projectCardTl = useRef();
+
+  useLayoutEffect(() => {
+    const projectsGSAP = gsap.utils.toArray('.project-card');
+
+    projectsGSAP.forEach((projectGSAP) => {
+      const q = gsap.utils.selector(projectGSAP);
+      projectCardTl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: projectGSAP,
+          },
+        })
+        .fromTo(
+          q('.project-card-date'),
+          {
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+          }
+        )
+        .fromTo(
+          q('.datedivider'),
+          {
+            width: '0%',
+          },
+          {
+            opacity: 1,
+            width: '100%',
+            duration: 0.5,
+          }
+        )
+        .fromTo(
+          q('.project-name'),
+          {
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+          }
+        )
+        .fromTo(
+          q('.project-image'),
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+          }
+        )
+        .fromTo(
+          q('.project-roles'),
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+          }
+        )
+        .fromTo(
+          q('.project-tagline'),
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+          }
+        );
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -63,14 +173,14 @@ export default function Projects({ data }) {
       </Head>
       <Navigation nav={nav} />
       <StyledProjectsContainer>
-        <StyledHeadingContainer>
-          <h1>Projects</h1>
-          <p>
+        <StyledHeadingContainer ref={headingRef}>
+          <h1 className="project-heading">Projects</h1>
+          <p className="project-heading">
             Explore some of the projects I've helped manage and develop, as well
             as the stories behind each project.
           </p>
         </StyledHeadingContainer>
-        <StyledProjectsWrapper>
+        <StyledProjectsWrapper ref={el}>
           {projects.map((project) => (
             <ProjectCard project={project} key={project.title} />
           ))}

@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import gsap from 'gsap';
 
 const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
@@ -25,6 +26,7 @@ const MobileNavigationContainer = styled.div`
 
 const NavigationLogo = styled.div`
   padding: 1rem 0rem;
+  opacity: 0;
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
@@ -107,6 +109,7 @@ const MobileNavLinks = styled.ul`
     padding: 1rem 0rem;
     list-style: none;
     max-width: 69.375rem;
+    opacity: 0;
   }
   a {
     text-decoration: none;
@@ -130,6 +133,10 @@ const StyledSocialLinks = styled.ul`
   @media (min-width: 48rem) {
     margin-top: 4rem;
     gap: 5rem;
+  }
+
+  li {
+    opacity: 0;
   }
 
   a {
@@ -156,17 +163,68 @@ export default function Navigation({ nav }) {
 
   const handleHamburgerClick = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
+
+  const el = useRef();
+  const q = gsap.utils.selector(el);
+  const navbarTl = useRef();
+
+  useEffect(() => {
+    navbarTl.current = gsap
+      .timeline()
+      .fromTo(
+        q('.logo'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      )
+      .fromTo(
+        q('.hamburger'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      );
+  }, []);
+
+  const navLinksTl = useRef();
+
+  useLayoutEffect(() => {
+    if (isOpen) {
+      navLinksTl.current = gsap
+        .timeline()
+        .to(q('.navlink'), {
+          opacity: 1,
+          duration: 0.3,
+          stagger: 0.3,
+        })
+        .to(q('.sociallink'), {
+          opacity: 1,
+          duration: 0.3,
+          stagger: 0.2,
+        });
+    }
+  }, [isOpen]);
 
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer ref={el}>
         <MobileNavigationContainer>
-          <NavigationLogo>
+          <NavigationLogo className="logo">
             <Link href="/">{nav[0].title}</Link>
           </NavigationLogo>
-          <NavigationHamburger isOpen={isOpen}>
+          <NavigationHamburger className="hamburger" isOpen={isOpen}>
             <button type="button" onClick={handleHamburgerClick}>
               <svg viewBox="0 0 50 30" width="50" height="30" fill="%23ddd">
                 <rect
@@ -203,23 +261,23 @@ export default function Navigation({ nav }) {
           <MobileNavLinksWrapper>
             <MobileNavLinks>
               {nav[0].navItems.map((item) => (
-                <li key={item.text}>
+                <li className="navlink" key={item.text}>
                   <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
                 </li>
               ))}
             </MobileNavLinks>
             <StyledSocialLinks>
-              <li>
+              <li className="sociallink">
                 <a href="https://github.com/shivjoshi1996">
                   <FaGithub />
                 </a>
               </li>
-              <li>
+              <li className="sociallink">
                 <a href="https://www.linkedin.com/in/shivam-joshi/">
                   <FaLinkedin />
                 </a>
               </li>
-              <li>
+              <li className="sociallink">
                 <a href="https://twitter.com/Shiv_J">
                   <FaTwitter />
                 </a>

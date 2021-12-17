@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { urlFor } from '../lib/sanity';
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 
 const StyledHeroWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.background};
@@ -23,12 +24,14 @@ const StyledHeroText = styled.div`
   flex: 1;
   color: ${(props) => props.theme.colors.textPrimary};
   h1 {
+    opacity: 0;
     margin-bottom: 0.5rem;
     @media (min-width: 48rem) {
       margin-bottom: 2rem;
     }
   }
   p {
+    opacity: 0;
     line-height: 1.7;
     margin-bottom: 1rem;
 
@@ -49,16 +52,66 @@ const StyledHeroText = styled.div`
 const StyledHeroButtons = styled.div`
   display: flex;
   gap: 1rem;
+  opacity: 0;
 `;
 
 export default function Hero({ heroHeading, heroText, heroButtons }) {
+  const el = useRef();
+  const q = gsap.utils.selector(el);
+  const heroTl = useRef();
+
+  useEffect(() => {
+    heroTl.current = gsap
+      .timeline()
+      .fromTo(
+        q('.hero-heading'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: 0.8,
+          ease: 'power1.easeOut',
+        }
+      )
+      .fromTo(
+        q('.hero-text'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power1.easeOut',
+        }
+      )
+      .fromTo(
+        q('.hero-button'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power1.easeOut',
+        }
+      );
+  }, []);
+
   return (
-    <StyledHeroWrapper>
+    <StyledHeroWrapper ref={el}>
       <StyledHero>
         <StyledHeroText>
-          <h1>{heroHeading}</h1>
-          <p>{heroText}</p>
-          <StyledHeroButtons>
+          <h1 className="hero-heading">{heroHeading}</h1>
+          <p className="hero-text">{heroText}</p>
+          <StyledHeroButtons className="hero-button">
             {heroButtons.map((button) => (
               <Link key={button._key} href={button.navItemUrl.linkUrl}>
                 {button.text}
@@ -75,5 +128,4 @@ Hero.propTypes = {
   heroHeading: PropTypes.string,
   heroText: PropTypes.string,
   heroButtons: PropTypes.array,
-  heroImage: PropTypes.object,
 };

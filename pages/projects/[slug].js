@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -8,6 +8,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import { useNextSanityImage } from 'next-sanity-image';
 import Img from 'next/image';
 import Head from 'next/head';
+import gsap from 'gsap';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import { urlFor } from '../../lib/sanity';
@@ -176,6 +177,91 @@ export default function Project({ project, nav }) {
   const { mainImage = '' } = project;
   const imageProps = useNextSanityImage(client.config(), mainImage);
 
+  const el = useRef();
+  const q = gsap.utils.selector(el);
+  const projectTl = useRef();
+
+  useLayoutEffect(() => {
+    projectTl.current = gsap
+      .timeline()
+      .fromTo(
+        q('.all-projects-link'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: 0.5,
+        }
+      )
+      .fromTo(
+        q('.hero-info'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      )
+      .fromTo(
+        q('.project-date'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.2,
+        }
+      )
+      .fromTo(
+        q('.project-roles'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.2,
+        }
+      )
+      .fromTo(
+        q('.project-stack'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.2,
+        }
+      )
+      .fromTo(
+        q('.project-body'),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        }
+      );
+  }, []);
+
   if (nav && project) {
     return (
       <>
@@ -183,16 +269,16 @@ export default function Project({ project, nav }) {
           <title>Shivam Joshi | {project.title}</title>
         </Head>
         <Navigation nav={nav} />
-        <ProjectSection>
+        <ProjectSection ref={el}>
           <StyledViewAllProjectsLink>
-            <Link className="all-projects-link" href="/projects" passHref>
-              <a>
+            <Link href="/projects" passHref>
+              <a className="all-projects-link">
                 <BiArrowBack />
                 View All Projects
               </a>
             </Link>
           </StyledViewAllProjectsLink>
-          <ProjectHeroWrapper>
+          <ProjectHeroWrapper className="hero-info">
             <Img
               {...imageProps}
               layout="responsive"
@@ -227,19 +313,21 @@ export default function Project({ project, nav }) {
           <ProjectInfoWrapper>
             {project?.publishedAt && (
               <StyledProjectDate>
-                <h3>DATE</h3>
-                <p>{project?.publishedAt?.split('-')[0]}</p>
+                <h3 className="project-date">DATE</h3>
+                <p className="project-date">
+                  {project?.publishedAt?.split('-')[0]}
+                </p>
               </StyledProjectDate>
             )}
 
             {project?.projectRoles && (
               <StyledProjectRoles>
-                <h3>ROLES</h3>
+                <h3 className="project-roles">ROLES</h3>
 
                 <ul>
                   {project?.projectRoles.map((role) => (
                     <li key={role.title}>
-                      <p>{role.title}</p>
+                      <p className="project-roles">{role.title}</p>
                     </li>
                   ))}
                 </ul>
@@ -248,11 +336,11 @@ export default function Project({ project, nav }) {
 
             {project?.technologies && (
               <StyledProjectTechnology>
-                <h3>STACK</h3>
+                <h3 className="project-stack">STACK</h3>
                 <ul>
                   {project?.technologies.map((technology) => (
                     <li key={technology.title}>
-                      <p>{technology.title}</p>
+                      <p className="project-stack">{technology.title}</p>
                     </li>
                   ))}
                 </ul>
@@ -260,7 +348,7 @@ export default function Project({ project, nav }) {
             )}
           </ProjectInfoWrapper>
 
-          <StyledProjectBodyContent>
+          <StyledProjectBodyContent className="project-body">
             <BlockContent blocks={project.body} {...client.config()} />
           </StyledProjectBodyContent>
         </ProjectSection>
