@@ -92,23 +92,42 @@ export default function Footer({ nav }) {
           </StyledNavigationLinks>
           <StyledSocialLinks>
             <li>
-              <a href="https://github.com/shivjoshi1996">
+              <a
+                href="https://github.com/shivjoshi1996"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub />
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/shivam-joshi/">
+              <a
+                href="https://www.linkedin.com/in/shivam-joshi/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin />
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/Shiv_J">
+              <a
+                href="https://twitter.com/Shiv_J"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaTwitter />
               </a>
             </li>
           </StyledSocialLinks>
           <StyledCopyright>
-            &copy;2021 - All rights reserved - Shivam Joshi
+            &copy;2021 -{' '}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/shivjoshi1996/portfolio-nextjs"
+            >
+              Created by Shivam Joshi
+            </a>
           </StyledCopyright>
         </StyledContentContainer>
       </StyledFooter>

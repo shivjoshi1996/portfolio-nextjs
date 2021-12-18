@@ -42,7 +42,7 @@ const StyledContactInfoGrid = styled.div`
 
 const StyledContactOptions = styled.div`
   margin-bottom: 2rem;
-  h3 {
+  p {
     margin-bottom: 1rem;
   }
   a {
@@ -52,7 +52,7 @@ const StyledContactOptions = styled.div`
 `;
 
 const StyledContactFormWrapper = styled.div`
-  h3 {
+  p {
     margin-bottom: 1.5rem;
   }
 `;
@@ -103,13 +103,13 @@ export default function Contact({ data }) {
           <h1 className="contact-heading">CONTACT ME</h1>
           <StyledContactInfoGrid>
             <StyledContactOptions>
-              <h3 className="contact-option">
+              <p className="contact-option">
                 Email me at <br />
                 <a className="contact-option" href="mailto:shiv@shivjoshi.com">
                   hello@shivamjoshi.com
                 </a>
-              </h3>
-              <h3 className="contact-option">
+              </p>
+              <p className="contact-option">
                 Check out my <br />
                 <a
                   className="contact-option"
@@ -119,10 +119,10 @@ export default function Contact({ data }) {
                 >
                   resume
                 </a>
-              </h3>
+              </p>
             </StyledContactOptions>
             <StyledContactFormWrapper className="contact-option">
-              <h3>Or, get in touch here:</h3>
+              <p>Or, get in touch here:</p>
               <ContactForm />
             </StyledContactFormWrapper>
           </StyledContactInfoGrid>
