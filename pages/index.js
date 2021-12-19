@@ -1,9 +1,5 @@
 /* eslint-disable react/prop-types */
-import Head from 'next/head';
-import Image from 'next/image';
 import { groq } from 'next-sanity';
-import styled from 'styled-components';
-import { usePreviewSubscription, urlFor, PortableText } from '../lib/sanity';
 import { getClient } from '../lib/sanity.server';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';

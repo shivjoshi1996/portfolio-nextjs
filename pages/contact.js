@@ -3,7 +3,7 @@ import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
 import gsap from 'gsap';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';

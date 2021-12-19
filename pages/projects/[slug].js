@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -11,7 +11,6 @@ import Head from 'next/head';
 import gsap from 'gsap';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
-import { urlFor } from '../../lib/sanity';
 import Footer from '../../components/Footer';
 
 const ProjectSection = styled.section`

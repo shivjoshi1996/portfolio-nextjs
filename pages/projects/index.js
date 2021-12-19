@@ -2,7 +2,7 @@
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ContactBanner from '../../components/ContactBanner';

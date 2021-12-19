@@ -209,7 +209,7 @@ export default function Navigation({ nav }) {
           duration: 0.3,
           stagger: 0.3,
         })
-        .to(q('.sociallink'), {
+        .to(q('.social-link'), {
           opacity: 1,
           duration: 0.3,
           stagger: 0.2,
@@ -267,18 +267,30 @@ export default function Navigation({ nav }) {
               ))}
             </MobileNavLinks>
             <StyledSocialLinks>
-              <li className="sociallink">
-                <a href="https://github.com/shivjoshi1996">
+              <li className="social-link">
+                <a
+                  href="https://github.com/shivjoshi1996"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaGithub />
                 </a>
               </li>
-              <li className="sociallink">
-                <a href="https://www.linkedin.com/in/shivam-joshi/">
+              <li className="social-link">
+                <a
+                  href="https://www.linkedin.com/in/shivam-joshi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedin />
                 </a>
               </li>
-              <li className="sociallink">
-                <a href="https://twitter.com/Shiv_J">
+              <li className="social-link">
+                <a
+                  href="https://twitter.com/Shiv_J"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaTwitter />
                 </a>
               </li>
