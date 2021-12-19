@@ -10,6 +10,7 @@ const StyledMySkillsSection = styled.div`
   background-color: ${(props) => props.theme.colors.background};
   padding-top: 2rem;
   padding-bottom: 2rem;
+
   img {
     height: auto;
     width: 50px;

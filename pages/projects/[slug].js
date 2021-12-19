@@ -123,6 +123,7 @@ const StyledProjectBodyContent = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
+
   p {
     margin-bottom: 1rem;
   }
@@ -190,8 +191,11 @@ const StyledProjectTechnology = styled.div`
 `;
 
 export default function Project({ project, nav }) {
-  const { mainImage = '' } = project;
-  const imageProps = useNextSanityImage(client.config(), mainImage);
+  const { projectScreenshot, mainImage } = project;
+  const imageProps = useNextSanityImage(
+    client.config(),
+    projectScreenshot || mainImage
+  );
 
   const el = useRef();
   const q = gsap.utils.selector(el);
@@ -392,7 +396,8 @@ export async function getStaticProps(context) {
     `
   *[_type == "project" && slug.current == $slug][0]{
     title,
-   mainImage,
+    mainImage,
+   projectScreenshot,
    slug,
    publishedAt,
    liveSiteUrl,

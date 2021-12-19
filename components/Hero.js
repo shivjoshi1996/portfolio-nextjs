@@ -25,9 +25,10 @@ const StyledHeroText = styled.div`
   color: ${(props) => props.theme.colors.textPrimary};
   h1 {
     opacity: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     @media (min-width: 48rem) {
       margin-bottom: 2rem;
+      width: 80%;
     }
   }
   p {
@@ -36,7 +37,7 @@ const StyledHeroText = styled.div`
     margin-bottom: 1rem;
 
     @media (min-width: 48rem) {
-      width: 80%;
+      width: 50%;
       margin-bottom: 2rem;
     }
   }

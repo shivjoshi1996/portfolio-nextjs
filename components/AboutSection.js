@@ -59,31 +59,25 @@ export default function AboutSection() {
             <p>
               I love to make things that have a positive impact on people. After
               receiving my bachelor's degree in Computing from Leeds Beckett
-              University in 2017, I was lucky enough to work as a Project
-              Manager in the Web & Design team at Canonical, the makers of the
-              Ubuntu operating system.
+              University in 2017, I worked as a Project Manager in the Web &
+              Design team at Canonical, the makers of the Ubuntu operating
+              system, and as a Project Coordinator in the Aurora Cannabis
+              Software Engineering team.
             </p>
             <p>
-              Working in a highly experienced and talented team, on projects
-              which impacted millions of developers taught me a great deal about
+              Working in highly experienced and talented teams, on projects
+              which impacted millions of people has taught me a great deal about
               project management, front-end development, and the importance of
               user experience and web accessibility.
             </p>
           </StyledParagraphWrapper>
           <StyledParagraphWrapper>
             <p>
-              I then moved to Vancouver in 2019 and joined Aurora Cannabis as
-              the Project Coordinator of the Software Engineering team. I led
-              the team to numerous website and app launches, including the
-              Aurora Cannabis Shopify Store that serves hundreds of patients per
-              day.
-            </p>
-            <p>
               In February 2021, I left the Aurora team to focus on front-end
               development. I refreshed my knowledge of HTML, CSS & JavaScript,
-              and frameworks such as NextJS and Gatsby. I am now looking for a
-              front-end development role, to work on projects that create a
-              lasting impact.
+              and frameworks such as React, NextJS and Gatsby. I am now looking
+              for a front-end development role, to work on projects that create
+              a lasting impact.
             </p>
           </StyledParagraphWrapper>
         </StyledAboutGrid>
