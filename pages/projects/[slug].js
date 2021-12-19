@@ -54,6 +54,10 @@ const ProjectHeroWrapper = styled.div`
     grid-template-rows: 1fr;
     grid-template-areas: 'info image';
     margin-bottom: 3rem;
+
+    @media (min-width: 48rem) {
+      gap: 2rem;
+    }
   }
   img {
     width: 100%;
@@ -106,6 +110,7 @@ const StyledProjectLinks = styled.div`
     padding: 0.8rem;
     border: 1px solid ${(props) => props.theme.colors.textPrimary};
     margin-bottom: 2rem;
+    text-transform: uppercase;
 
     &:hover {
       background-color: ${(props) => props.theme.colors.textPrimary};
