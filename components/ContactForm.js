@@ -47,6 +47,12 @@ const StyledSubmitWrapper = styled.div`
     cursor: pointer;
     color: ${(props) => props.theme.colors.textPrimary};
     text-transform: uppercase;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.textPrimary};
+      color: ${(props) => props.theme.colors.background};
+    }
   }
 `;
 

@@ -42,6 +42,12 @@ const StyledProjectInfoWrapper = styled.div`
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
     cursor: pointer;
+
+    transition: 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
   }
 `;
 
@@ -79,8 +85,7 @@ const StyledTagline = styled.p`
 export default function ProjectCard({ project }) {
   const imageProps = useNextSanityImage(client.config(), project.mainImage);
 
-  const { title, mainImage, tagline, slug, projectRoles, publishedAt } =
-    project;
+  const { title, tagline, slug, projectRoles, publishedAt } = project;
 
   // Get roles, make into a string with commas seperating
   const roles = [];

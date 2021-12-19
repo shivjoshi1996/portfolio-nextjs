@@ -12,6 +12,12 @@ const StyledFooter = styled.footer`
 const StyledContentContainer = styled.div`
   a {
     color: ${(props) => props.theme.colors.textPrimary};
+
+    transition: 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
   }
 
   text-align: center;
@@ -35,6 +41,12 @@ const StyledContentContainer = styled.div`
 const StyledLogo = styled.div`
   a {
     text-decoration: none;
+
+    transition: 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
   }
 
   @media (min-width: 48rem) {
@@ -65,6 +77,12 @@ const StyledSocialLinks = styled.ul`
 
   svg {
     font-size: 1.6rem;
+
+    transition: 0.5s;
+
+    &:hover {
+      fill: ${(props) => props.theme.colors.textHover};
+    }
   }
 `;
 

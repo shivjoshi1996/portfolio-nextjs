@@ -34,6 +34,12 @@ const StyledViewAllProjectsLink = styled.div`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+
+    transition: 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
   }
 `;
 

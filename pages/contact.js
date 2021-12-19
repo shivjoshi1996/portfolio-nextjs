@@ -44,10 +44,17 @@ const StyledContactOptions = styled.div`
   margin-bottom: 2rem;
   p {
     margin-bottom: 1rem;
+    line-height: 1.5;
   }
   a {
     font-size: inherit;
     color: ${(props) => props.theme.colors.textPrimary};
+
+    transition: 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
   }
 `;
 
