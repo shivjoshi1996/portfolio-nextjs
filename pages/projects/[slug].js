@@ -101,6 +101,12 @@ const StyledProjectLinks = styled.div`
     border: 1px solid ${(props) => props.theme.colors.textPrimary};
     margin-bottom: 2rem;
 
+    &:hover {
+      background-color: ${(props) => props.theme.colors.textPrimary};
+      color: ${(props) => props.theme.colors.background};
+      transition: 0.5s;
+    }
+
     @media (min-width: 48rem) {
       margin-bottom: unset;
     }
@@ -121,6 +127,11 @@ const StyledProjectBodyContent = styled.div`
   }
   a {
     color: ${(props) => props.theme.colors.textPrimary};
+    transition: 0.5s;
+
+    &:hover {
+      color: #afb1e9;
+    }
   }
 `;
 

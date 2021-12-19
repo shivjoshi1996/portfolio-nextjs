@@ -5,7 +5,6 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ProjectCard from './ProjectCard';
-import { urlFor } from '../lib/sanity';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,7 +29,7 @@ const StyledFeaturedProjectsWrapper = styled.div`
   width: 90%;
   max-width: 69.375rem;
   margin: 0 auto;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 
   @media (min-width: 48rem) {
     display: grid;
@@ -46,6 +45,15 @@ const StyledViewAllLink = styled.div`
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.textPrimary};
     text-align: center;
+    transition: 0.5s;
+    border: 1px solid ${(props) => props.theme.colors.textPrimary};
+    padding: 0.8em;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.textPrimary};
+      color: ${(props) => props.theme.colors.background};
+      transition: 0.5s;
+    }
   }
 `;
 

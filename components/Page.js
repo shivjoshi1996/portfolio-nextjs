@@ -6,6 +6,7 @@ const appTheme = {
   colors: {
     background: '#1d1d1d;',
     textPrimary: '#ddd;',
+    textHover: '#999999;',
   },
   font: `'Archivo', sans-serif`,
 };

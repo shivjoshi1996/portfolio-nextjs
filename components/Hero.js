@@ -43,9 +43,16 @@ const StyledHeroText = styled.div`
 
   a {
     text-decoration: none;
+    text-transform: uppercase;
     color: ${(props) => props.theme.colors.textPrimary};
-    padding: 0.5rem;
+    padding: 0.8em;
     border: 2px solid ${(props) => props.theme.colors.textPrimary};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.textPrimary};
+      color: ${(props) => props.theme.colors.background};
+      transition: 0.5s;
+    }
   }
 `;
 

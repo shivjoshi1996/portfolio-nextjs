@@ -31,6 +31,11 @@ const NavigationLogo = styled.div`
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
     font-size: 1.2rem;
+    transition: 0.5s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
 
     @media (min-width: 48rem) {
       font-size: 1.5rem;
@@ -60,6 +65,11 @@ const NavigationHamburger = styled.div`
     }
   }
   svg {
+
+    &:hover {
+      fill: ${(props) => props.theme.colors.textHover};
+    }
+
     display: block;
     fill: ${(props) => props.theme.colors.textPrimary};
     #rect1,
@@ -117,6 +127,11 @@ const MobileNavLinks = styled.ul`
     color: ${(props) => props.theme.colors.textPrimary};
     border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
     font-size: 2rem;
+    transition: 0.3s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
 
     @media (min-width: 48rem) {
       font-size: 5rem;
@@ -146,6 +161,11 @@ const StyledSocialLinks = styled.ul`
 
   svg {
     font-size: 1.6rem;
+    transition: 0.3s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.textHover};
+    }
 
     @media (min-width: 48rem) {
       font-size: 5rem;
