@@ -80,7 +80,7 @@ const StyledProjectHeroInfo = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
   }
-  h2 {
+  h1 {
     margin-bottom: 1rem;
     padding: 0 0 0 5%;
 
@@ -124,13 +124,29 @@ const StyledProjectBodyContent = styled.div`
   margin: 0 auto;
   max-width: 69.375rem;
 
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
   p {
     margin-bottom: 1rem;
+    @media (min-width: 48rem) {
+      margin-bottom: 1.5rem;
+      width: 80%;
+    }
   }
+
   img {
     width: 100%;
     margin-bottom: 1rem;
     object-fit: cover;
+
+    @media (min-width: 48rem) {
+      margin: 2rem 0rem;
+      width: 80%;
+    }
   }
   a {
     color: ${(props) => props.theme.colors.textPrimary};
@@ -155,8 +171,9 @@ const ProjectInfoWrapper = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  h3 {
+  h2 {
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -305,7 +322,7 @@ export default function Project({ project, nav }) {
               sizes="(max-width: 1110px) 100vw, 549px"
             />
             <StyledProjectHeroInfo>
-              <h2>{project?.title}</h2>
+              <h1>{project?.title}</h1>
 
               <StyledProjectLinks>
                 {project?.liveSiteUrl && (
@@ -333,7 +350,7 @@ export default function Project({ project, nav }) {
           <ProjectInfoWrapper>
             {project?.publishedAt && (
               <StyledProjectDate>
-                <h3 className="project-date">DATE</h3>
+                <h2 className="project-date">DATE</h2>
                 <p className="project-date">
                   {project?.publishedAt?.split('-')[0]}
                 </p>
@@ -342,7 +359,7 @@ export default function Project({ project, nav }) {
 
             {project?.projectRoles && (
               <StyledProjectRoles>
-                <h3 className="project-roles">ROLES</h3>
+                <h2 className="project-roles">ROLES</h2>
 
                 <ul>
                   {project?.projectRoles.map((role) => (
@@ -356,7 +373,7 @@ export default function Project({ project, nav }) {
 
             {project?.technologies && (
               <StyledProjectTechnology>
-                <h3 className="project-stack">STACK</h3>
+                <h2 className="project-stack">STACK</h2>
                 <ul>
                   {project?.technologies.map((technology) => (
                     <li key={technology.title}>
