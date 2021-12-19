@@ -34,6 +34,7 @@ const StyledViewAllProjectsLink = styled.div`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+    opacity: 0;
 
     transition: 0.5s;
 
