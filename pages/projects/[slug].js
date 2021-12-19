@@ -131,9 +131,14 @@ const StyledProjectBodyContent = styled.div`
   max-width: 69.375rem;
 
   h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1.5rem;
     text-transform: uppercase;
+  }
+  h3 {
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
   p {
