@@ -31,7 +31,6 @@ const NavigationLogo = styled.div`
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
     font-size: 1.2rem;
-    transition: 0.5s;
 
     &:hover {
       color: ${(props) => props.theme.colors.textHover};
