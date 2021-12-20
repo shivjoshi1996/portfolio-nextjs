@@ -65,10 +65,10 @@ const StyledHeroButtons = styled.div`
 
 export default function Hero({ heroHeading, heroText, heroButtons }) {
   const el = useRef();
-  const q = gsap.utils.selector(el);
   const heroTl = useRef();
 
   useEffect(() => {
+    const q = gsap.utils.selector(el);
     heroTl.current = gsap
       .timeline()
       .fromTo(

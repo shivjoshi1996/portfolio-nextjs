@@ -226,10 +226,10 @@ export default function Project({ project, nav }) {
   );
 
   const el = useRef();
-  const q = gsap.utils.selector(el);
   const projectTl = useRef();
 
   useLayoutEffect(() => {
+    const q = gsap.utils.selector(el);
     projectTl.current = gsap
       .timeline()
       .fromTo(

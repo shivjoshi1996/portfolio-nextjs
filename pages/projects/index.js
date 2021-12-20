@@ -66,9 +66,9 @@ export default function Projects({ data }) {
 
   // Heading GSAP
   const headingRef = useRef();
-  const headingSelector = gsap.utils.selector(headingRef);
 
   useLayoutEffect(() => {
+    const headingSelector = gsap.utils.selector(headingRef);
     gsap.fromTo(
       headingSelector('.project-heading'),
       { opacity: 0, y: 20 },

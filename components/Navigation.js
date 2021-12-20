@@ -185,10 +185,10 @@ export default function Navigation({ nav }) {
   };
 
   const el = useRef();
-  const q = gsap.utils.selector(el);
   const navbarTl = useRef();
 
   useEffect(() => {
+    const q = gsap.utils.selector(el);
     navbarTl.current = gsap
       .timeline()
       .fromTo(
@@ -220,6 +220,7 @@ export default function Navigation({ nav }) {
   const navLinksTl = useRef();
 
   useLayoutEffect(() => {
+    const q = gsap.utils.selector(el);
     if (isOpen) {
       navLinksTl.current = gsap
         .timeline()

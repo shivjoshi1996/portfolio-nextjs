@@ -66,10 +66,10 @@ const StyledContactFormWrapper = styled.div`
 
 export default function Contact({ data }) {
   const el = useRef();
-  const q = gsap.utils.selector(el);
   const contactTl = useRef();
 
   useLayoutEffect(() => {
+    const q = gsap.utils.selector(el);
     contactTl.current = gsap
       .timeline()
       .fromTo(

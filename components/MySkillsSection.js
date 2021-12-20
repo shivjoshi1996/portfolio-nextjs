@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import PropTypes from 'prop-types';
-import { propTypes } from '@sanity/block-content-to-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,10 +85,10 @@ export default function MySkillsSection({
   // TODO - Split technology into seperate component
 
   const el = useRef();
-  const q = gsap.utils.selector(el);
   const skillsTl = useRef();
 
   useEffect(() => {
+    const q = gsap.utils.selector(el);
     skillsTl.current = gsap
       .timeline({
         scrollTrigger: {
@@ -213,12 +212,12 @@ export default function MySkillsSection({
 
 MySkillsSection.propTypes = {
   developmentTechnologies: PropTypes.arrayOf(
-    propTypes.shape({
+    PropTypes.shape({
       title: PropTypes.string,
     })
   ),
   projectManagementTechnologies: PropTypes.arrayOf(
-    propTypes.shape({
+    PropTypes.shape({
       title: PropTypes.string,
     })
   ),
