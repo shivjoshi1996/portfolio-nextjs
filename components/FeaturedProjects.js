@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import PropTypes from 'prop-types';
 import ProjectCard from './ProjectCard';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -183,3 +183,7 @@ export default function FeaturedProjects({ featuredProjects }) {
     </StyledFeaturedProjectsContainer>
   );
 }
+
+FeaturedProjects.propTypes = {
+  featuredProjects: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

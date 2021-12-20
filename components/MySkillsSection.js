@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import PropTypes from 'prop-types';
+import { propTypes } from '@sanity/block-content-to-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -209,3 +210,16 @@ export default function MySkillsSection({
     </StyledMySkillsSection>
   );
 }
+
+MySkillsSection.propTypes = {
+  developmentTechnologies: PropTypes.arrayOf(
+    propTypes.shape({
+      title: PropTypes.string,
+    })
+  ),
+  projectManagementTechnologies: PropTypes.arrayOf(
+    propTypes.shape({
+      title: PropTypes.string,
+    })
+  ),
+};

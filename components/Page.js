@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
 import GlobalStyles from '../styles/GlobalStyles';
 
 const appTheme = {
@@ -21,3 +21,7 @@ export default function Page({ children }) {
     </>
   );
 }
+
+Page.propTypes = {
+  children: PropTypes.node.isRequired,
+};

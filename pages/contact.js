@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
 import gsap from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
@@ -162,3 +162,24 @@ export async function getStaticProps({ preview = false }) {
     },
   };
 }
+
+Contact.propTypes = {
+  data: PropTypes.shape({
+    nav: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        navItems: PropTypes.arrayOf(
+          PropTypes.shape({
+            title: PropTypes.string,
+            url: PropTypes.string,
+          })
+        ),
+      })
+    ),
+    contact: PropTypes.arrayOf(
+      PropTypes.shape({
+        resume: PropTypes.string,
+      })
+    ),
+  }),
+};

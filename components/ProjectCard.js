@@ -1,12 +1,10 @@
-/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useNextSanityImage } from 'next-sanity-image';
 import Img from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useRef } from 'react';
-import { urlFor } from '../lib/sanity';
+import PropTypes from 'prop-types';
 import client from '../lib/client';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -134,3 +132,7 @@ export default function ProjectCard({ project }) {
     </>
   );
 }
+
+ProjectCard.propTypes = {
+  project: PropTypes.object.isRequired,
+};

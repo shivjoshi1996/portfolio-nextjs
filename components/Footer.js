@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const StyledFooter = styled.footer`
   background-color: ${(props) => props.theme.colors.background};
@@ -152,3 +152,7 @@ export default function Footer({ nav }) {
     </>
   );
 }
+
+Footer.propTypes = {
+  nav: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

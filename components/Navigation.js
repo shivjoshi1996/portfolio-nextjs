@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 import Link from 'next/link';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import gsap from 'gsap';
+import PropTypes from 'prop-types';
 
 const NavigationContainer = styled.nav`
   background-color: ${(props) => props.theme.colors.background};
@@ -321,3 +321,19 @@ export default function Navigation({ nav }) {
     </>
   );
 }
+
+Navigation.propTypes = {
+  nav: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      navItems: PropTypes.arrayOf(
+        PropTypes.shape({
+          text: PropTypes.string,
+          navItemUrl: PropTypes.shape({
+            linkUrl: PropTypes.string,
+          }),
+        })
+      ),
+    })
+  ),
+};
