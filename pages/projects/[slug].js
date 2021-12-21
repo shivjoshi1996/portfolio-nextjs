@@ -132,7 +132,6 @@ const StyledProjectBodyContent = styled.div`
 
   h2 {
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
     text-transform: uppercase;
   }
   h3 {
