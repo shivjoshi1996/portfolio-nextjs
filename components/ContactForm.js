@@ -58,7 +58,7 @@ const StyledSubmitWrapper = styled.div`
 
 export default function ContactForm() {
   return (
-    <StyledContactForm>
+    <StyledContactForm name="contact" netlify>
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
       <label htmlFor="name">Name:</label>
