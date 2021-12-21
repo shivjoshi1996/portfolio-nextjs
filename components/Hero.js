@@ -36,8 +36,8 @@ const StyledHeroText = styled.div`
     line-height: 1.7;
     margin-bottom: 1rem;
 
-    @media (min-width: 48rem) {
-      width: 50%;
+    @media (min-width: 69.375rem) {
+      width: 60%;
       margin-bottom: 2rem;
     }
   }

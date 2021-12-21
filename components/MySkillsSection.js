@@ -34,6 +34,10 @@ const StyledMySkillsSection = styled.div`
     opacity: 0;
     text-transform: uppercase;
     margin-bottom: 1rem;
+
+    @media (min-width: 48rem) {
+      margin-bottom: 2rem;
+    }
   }
 `;
 
