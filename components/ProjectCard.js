@@ -40,6 +40,7 @@ const StyledProjectInfoWrapper = styled.div`
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
     cursor: pointer;
+    font-weight: bold;
 
     transition: 0.5s;
 

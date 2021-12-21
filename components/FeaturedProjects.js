@@ -48,6 +48,7 @@ const StyledViewAllLink = styled.div`
     transition: 0.5s;
     border: 1px solid ${(props) => props.theme.colors.textPrimary};
     padding: 0.8em;
+    font-weight: bold;
 
     &:hover {
       background-color: ${(props) => props.theme.colors.textPrimary};

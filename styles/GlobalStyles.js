@@ -44,11 +44,32 @@ const GlobalStyles = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  input[type=text], input[type=submit] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    -moz-appearance: none;
+    border-radius: 0;
+    
+  }
+  textarea {
+    -webkit-border-radius: 0px;
+    border-radius: 0;
+  }
+  input {
+    border-radius: 0;
+  }
+  
   body {
     font-family: ${(props) => props.theme.font};
     color: ${(props) => props.theme.colors.textPrimary};
     scroll-behaviour: smooth;
   }
+
+  h1, h2, h3 {
+    font-weight: bold;
+  }
+
   h1 {
     font-size: 2.5rem;
     @media (min-width: 48rem) {
