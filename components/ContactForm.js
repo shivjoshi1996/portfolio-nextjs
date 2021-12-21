@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledContactForm = styled.form`
@@ -57,8 +58,28 @@ const StyledSubmitWrapper = styled.div`
 `;
 
 export default function ContactForm() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      setIsSubmitted(true);
+    },
+    [setIsSubmitted]
+  );
+
+  if (isSubmitted) {
+    return (
+      <p>Thank you for your submission, I will get back to you shortly.</p>
+    );
+  }
+
   return (
-    <StyledContactForm name="contact" netlify>
+    <StyledContactForm
+      onSubmit={handleSubmit}
+      name="contact"
+      data-netlify="true"
+    >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
       <label htmlFor="name">Name:</label>
