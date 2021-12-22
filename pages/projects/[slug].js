@@ -44,7 +44,7 @@ const StyledViewAllProjectsLink = styled.div`
   }
 `;
 
-const ProjectHeroWrapper = styled.div`
+const ProjectHeroWrapper = styled.section`
   @media (min-width: 48rem) {
     width: 90%;
     margin: 0 auto;
@@ -125,7 +125,7 @@ const StyledProjectLinks = styled.div`
   }
 `;
 
-const StyledProjectBodyContent = styled.div`
+const StyledProjectBodyContent = styled.section`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
@@ -168,7 +168,7 @@ const StyledProjectBodyContent = styled.div`
   }
 `;
 
-const ProjectInfoWrapper = styled.div`
+const ProjectInfoWrapper = styled.section`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;

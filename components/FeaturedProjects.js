@@ -8,7 +8,7 @@ import ProjectCard from './ProjectCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StyledFeaturedProjectsContainer = styled.div`
+const StyledFeaturedProjectsContainer = styled.section`
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: ${(props) => props.theme.colors.background};

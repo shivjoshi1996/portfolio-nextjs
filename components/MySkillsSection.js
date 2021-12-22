@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StyledMySkillsSection = styled.div`
+const StyledMySkillsSection = styled.section`
   background-color: ${(props) => props.theme.colors.background};
   padding-top: 2rem;
   padding-bottom: 2rem;

@@ -40,7 +40,7 @@ const StyledContactInfoGrid = styled.div`
   }
 `;
 
-const StyledContactOptions = styled.div`
+const StyledContactOptions = styled.section`
   margin-bottom: 2rem;
   p {
     margin-bottom: 1rem;
@@ -58,7 +58,7 @@ const StyledContactOptions = styled.div`
   }
 `;
 
-const StyledContactFormWrapper = styled.div`
+const StyledContactFormWrapper = styled.section`
   p {
     margin-bottom: 1.5rem;
   }
