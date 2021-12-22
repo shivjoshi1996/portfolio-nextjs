@@ -55,7 +55,7 @@ const StyledProjectsWrapper = styled.div`
   }
 
   @media (min-width: 48rem) {
-    > div:nth-child(even) {
+    > article:nth-child(even) {
       margin-top: 20rem;
     }
   }
