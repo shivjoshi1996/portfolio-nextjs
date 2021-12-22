@@ -239,14 +239,26 @@ export default function Navigation({ nav }) {
 
   return (
     <>
-      <NavigationContainer ref={el}>
+      <NavigationContainer role="navigation" aria-label="Main Menu" ref={el}>
         <MobileNavigationContainer>
           <NavigationLogo className="logo">
             <Link href="/">{nav[0].title}</Link>
           </NavigationLogo>
           <NavigationHamburger className="hamburger" isOpen={isOpen}>
-            <button type="button" onClick={handleHamburgerClick}>
-              <svg viewBox="0 0 50 30" width="50" height="30" fill="%23ddd">
+            <button
+              type="button"
+              aria-expanded={isOpen ? 'true' : 'false'}
+              aria-controls="main-menu"
+              onClick={handleHamburgerClick}
+              aria-label="Open Menu"
+            >
+              <svg
+                viewBox="0 0 50 30"
+                width="50"
+                height="30"
+                fill="%23ddd"
+                aria-hidden="true"
+              >
                 <rect
                   id="rect1"
                   width="100%"
@@ -279,7 +291,7 @@ export default function Navigation({ nav }) {
           visibility={isOpen ? 'visible' : 'hidden'}
         >
           <MobileNavLinksWrapper>
-            <MobileNavLinks>
+            <MobileNavLinks id="main-menu">
               {nav[0].navItems.map((item) => (
                 <li className="navlink" key={item.text}>
                   <Link href={item?.navItemUrl?.linkUrl}>{item.text}</Link>
@@ -292,8 +304,9 @@ export default function Navigation({ nav }) {
                   href="https://github.com/shivjoshi1996"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="View my GitHub profile"
                 >
-                  <FaGithub />
+                  <FaGithub aria-hidden="true" title="View my GitHub profile" />
                 </a>
               </li>
               <li className="social-link">
@@ -301,8 +314,12 @@ export default function Navigation({ nav }) {
                   href="https://www.linkedin.com/in/shivam-joshi/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="View my LinkedIn profile"
                 >
-                  <FaLinkedin />
+                  <FaLinkedin
+                    aria-hidden="true"
+                    title="View my LinkedIn profile"
+                  />
                 </a>
               </li>
               <li className="social-link">
@@ -310,8 +327,12 @@ export default function Navigation({ nav }) {
                   href="https://twitter.com/Shiv_J"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="View my Twitter profile"
                 >
-                  <FaTwitter />
+                  <FaTwitter
+                    aria-hidden="true"
+                    title="View my Twitter profile"
+                  />
                 </a>
               </li>
             </StyledSocialLinks>

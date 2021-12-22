@@ -34,10 +34,12 @@ export default function Success({ data }) {
     <>
       <Navigation nav={nav} />
       <StyledSuccessContainer>
-        <StyledSuccessWrapper>
-          <h1>Success!</h1>
-          <p>Thanks for your message, I will get back to you shortly.</p>
-        </StyledSuccessWrapper>
+        <main>
+          <StyledSuccessWrapper>
+            <h1>Success!</h1>
+            <p>Thanks for your message, I will get back to you shortly.</p>
+          </StyledSuccessWrapper>
+        </main>
       </StyledSuccessContainer>
       <Footer nav={nav} />
     </>

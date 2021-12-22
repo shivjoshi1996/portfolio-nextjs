@@ -50,18 +50,22 @@ export default function Home(props) {
   return (
     <>
       <Navigation nav={nav} />
-      <Hero
-        heroHeading={heroHeading}
-        heroText={heroText}
-        heroButtons={heroButtons}
-        heroImage={heroImage}
-      />
-      <AboutSection />
-      <MySkillsSection
-        developmentTechnologies={developmentTechnologies}
-        projectManagementTechnologies={projectManagementTechnologies}
-      />
-      <FeaturedProjects featuredProjects={featuredProjects} />
+      <main>
+        <header>
+          <Hero
+            heroHeading={heroHeading}
+            heroText={heroText}
+            heroButtons={heroButtons}
+            heroImage={heroImage}
+          />
+        </header>
+        <AboutSection />
+        <MySkillsSection
+          developmentTechnologies={developmentTechnologies}
+          projectManagementTechnologies={projectManagementTechnologies}
+        />
+        <FeaturedProjects featuredProjects={featuredProjects} />
+      </main>
       <ContactBanner />
       <Footer nav={nav} />
     </>

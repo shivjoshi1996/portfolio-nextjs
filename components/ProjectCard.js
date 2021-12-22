@@ -9,7 +9,7 @@ import client from '../lib/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StyledFeaturedProject = styled.div`
+const StyledFeaturedProject = styled.article`
   @media (max-width: 47.8125rem) {
     margin-bottom: 2rem;
   }
@@ -123,6 +123,7 @@ export default function ProjectCard({ project }) {
                 {...imageProps}
                 layout="responsive"
                 sizes="(max-width: 1110px) 100vw, 539px"
+                alt={`${title} project`}
               />
             </div>
           </Link>

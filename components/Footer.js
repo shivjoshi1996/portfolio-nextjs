@@ -114,8 +114,9 @@ export default function Footer({ nav }) {
                 href="https://github.com/shivjoshi1996"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View my GitHub profile"
               >
-                <FaGithub />
+                <FaGithub aria-hidden="true" title="View my GitHub profile" />
               </a>
             </li>
             <li>
@@ -123,8 +124,12 @@ export default function Footer({ nav }) {
                 href="https://www.linkedin.com/in/shivam-joshi/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View my LinkedIn profile"
               >
-                <FaLinkedin />
+                <FaLinkedin
+                  aria-hidden="true"
+                  title="View my LinkedIn profile"
+                />
               </a>
             </li>
             <li>
@@ -132,8 +137,9 @@ export default function Footer({ nav }) {
                 href="https://twitter.com/Shiv_J"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View my Twitter profile"
               >
-                <FaTwitter />
+                <FaTwitter aria-hidden="true" title="View my Twitter profile" />
               </a>
             </li>
           </StyledSocialLinks>
@@ -143,6 +149,8 @@ export default function Footer({ nav }) {
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/shivjoshi1996/portfolio-nextjs"
+              title="View the source code for this website"
+              aria-label="View the source code for this website"
             >
               Created by Shivam Joshi
             </a>

@@ -19,7 +19,7 @@ const StyledProjectsContainer = styled.div`
   background-color: ${(props) => props.theme.colors.background};
 `;
 
-const StyledHeadingContainer = styled.div`
+const StyledHeadingContainer = styled.header`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
@@ -172,20 +172,22 @@ export default function Projects({ data }) {
         <title>Shivam Joshi | Projects</title>
       </Head>
       <Navigation nav={nav} />
-      <StyledProjectsContainer>
-        <StyledHeadingContainer ref={headingRef}>
-          <h1 className="project-heading">Projects</h1>
-          <p className="project-heading">
-            Explore some of the projects I've helped manage and develop, as well
-            as the stories behind each project.
-          </p>
-        </StyledHeadingContainer>
-        <StyledProjectsWrapper ref={el}>
-          {projects.map((project) => (
-            <ProjectCard project={project} key={project.title} />
-          ))}
-        </StyledProjectsWrapper>
-      </StyledProjectsContainer>
+      <main>
+        <StyledProjectsContainer>
+          <StyledHeadingContainer ref={headingRef}>
+            <h1 className="project-heading">Projects</h1>
+            <p className="project-heading">
+              Explore some of the projects I've helped manage and develop, as
+              well as the stories behind each project.
+            </p>
+          </StyledHeadingContainer>
+          <StyledProjectsWrapper ref={el}>
+            {projects.map((project) => (
+              <ProjectCard project={project} key={project.title} />
+            ))}
+          </StyledProjectsWrapper>
+        </StyledProjectsContainer>
+      </main>
       <ContactBanner />
       <Footer nav={nav} />
     </>

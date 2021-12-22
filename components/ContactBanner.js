@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const StyledContactBannerSection = styled.section`
+const StyledContactBannerContainer = styled.aside`
   background-color: ${(props) => props.theme.colors.background};
   padding: 5rem 0;
 
@@ -32,13 +32,13 @@ const StyledContactBannerGrid = styled.div`
 
 export default function ContactBanner() {
   return (
-    <StyledContactBannerSection>
+    <StyledContactBannerContainer>
       <StyledContactBannerGrid>
         <h2>Contact Me</h2>
         <p>
           Like what you see? Lets work <Link href="/contact">together.</Link>
         </p>
       </StyledContactBannerGrid>
-    </StyledContactBannerSection>
+    </StyledContactBannerContainer>
   );
 }
