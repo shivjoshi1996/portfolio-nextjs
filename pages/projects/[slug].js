@@ -332,6 +332,7 @@ export default function Project({ project, nav }) {
                   {...imageProps}
                   layout="responsive"
                   sizes="(max-width: 1110px) 100vw, 549px"
+                  alt={project.title}
                 />
                 <StyledProjectHeroInfo>
                   <h1>{project?.title}</h1>
