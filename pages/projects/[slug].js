@@ -13,7 +13,7 @@ import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 
-const ProjectSection = styled.section`
+const ProjectSection = styled.div`
   background-color: ${(props) => props.theme.colors.background};
   padding-bottom: 2rem;
 
@@ -72,7 +72,7 @@ const ProjectHeroWrapper = styled.div`
   }
 `;
 
-const StyledProjectHeroInfo = styled.div`
+const StyledProjectHeroInfo = styled.header`
 
   @media (max-width: 767.9px) {
     margin-top: 2rem;
@@ -326,79 +326,81 @@ export default function Project({ project, nav }) {
                 </a>
               </Link>
             </StyledViewAllProjectsLink>
-            <ProjectHeroWrapper className="hero-info">
-              <Img
-                {...imageProps}
-                layout="responsive"
-                sizes="(max-width: 1110px) 100vw, 549px"
-              />
-              <StyledProjectHeroInfo>
-                <h1>{project?.title}</h1>
+            <article>
+              <ProjectHeroWrapper className="hero-info">
+                <Img
+                  {...imageProps}
+                  layout="responsive"
+                  sizes="(max-width: 1110px) 100vw, 549px"
+                />
+                <StyledProjectHeroInfo>
+                  <h1>{project?.title}</h1>
 
-                <StyledProjectLinks>
-                  {project?.liveSiteUrl && (
-                    <a
-                      href={project.liveSiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Live Site
-                    </a>
-                  )}
-                  {project?.sourceCodeUrl && (
-                    <a
-                      href={project.sourceCodeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Code
-                    </a>
-                  )}
-                </StyledProjectLinks>
-              </StyledProjectHeroInfo>
-            </ProjectHeroWrapper>
+                  <StyledProjectLinks>
+                    {project?.liveSiteUrl && (
+                      <a
+                        href={project.liveSiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Live Site
+                      </a>
+                    )}
+                    {project?.sourceCodeUrl && (
+                      <a
+                        href={project.sourceCodeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Code
+                      </a>
+                    )}
+                  </StyledProjectLinks>
+                </StyledProjectHeroInfo>
+              </ProjectHeroWrapper>
 
-            <ProjectInfoWrapper>
-              {project?.publishedAt && (
-                <StyledProjectDate>
-                  <h2 className="project-date">DATE</h2>
-                  <p className="project-date">
-                    {project?.publishedAt?.split('-')[0]}
-                  </p>
-                </StyledProjectDate>
-              )}
+              <ProjectInfoWrapper>
+                {project?.publishedAt && (
+                  <StyledProjectDate>
+                    <h2 className="project-date">DATE</h2>
+                    <p className="project-date">
+                      {project?.publishedAt?.split('-')[0]}
+                    </p>
+                  </StyledProjectDate>
+                )}
 
-              {project?.projectRoles && (
-                <StyledProjectRoles>
-                  <h2 className="project-roles">ROLES</h2>
+                {project?.projectRoles && (
+                  <StyledProjectRoles>
+                    <h2 className="project-roles">ROLES</h2>
 
-                  <ul>
-                    {project?.projectRoles.map((role) => (
-                      <li key={role.title}>
-                        <p className="project-roles">{role.title}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </StyledProjectRoles>
-              )}
+                    <ul>
+                      {project?.projectRoles.map((role) => (
+                        <li key={role.title}>
+                          <p className="project-roles">{role.title}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </StyledProjectRoles>
+                )}
 
-              {project?.technologies && (
-                <StyledProjectTechnology>
-                  <h2 className="project-stack">STACK</h2>
-                  <ul>
-                    {project?.technologies.map((technology) => (
-                      <li key={technology.title}>
-                        <p className="project-stack">{technology.title}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </StyledProjectTechnology>
-              )}
-            </ProjectInfoWrapper>
+                {project?.technologies && (
+                  <StyledProjectTechnology>
+                    <h2 className="project-stack">STACK</h2>
+                    <ul>
+                      {project?.technologies.map((technology) => (
+                        <li key={technology.title}>
+                          <p className="project-stack">{technology.title}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </StyledProjectTechnology>
+                )}
+              </ProjectInfoWrapper>
 
-            <StyledProjectBodyContent className="project-body">
-              <BlockContent blocks={project.body} {...client.config()} />
-            </StyledProjectBodyContent>
+              <StyledProjectBodyContent className="project-body">
+                <BlockContent blocks={project.body} {...client.config()} />
+              </StyledProjectBodyContent>
+            </article>
           </ProjectSection>
         </main>
         <Footer nav={nav} />
