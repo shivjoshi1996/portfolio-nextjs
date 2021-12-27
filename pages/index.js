@@ -2,7 +2,7 @@
 import { groq } from 'next-sanity';
 import { getClient } from '../lib/sanity.server';
 import Navigation from '../components/Navigation';
-import Hero from '../components/Hero';
+import Hero from '../components/Hero.tsx';
 import FeaturedProjects from '../components/FeaturedProjects';
 import MySkillsSection from '../components/MySkillsSection';
 import Footer from '../components/Footer';

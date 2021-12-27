@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
 import { getClient } from '../lib/sanity.server';
 
-const StyledContactPage = styled.div`
+const StyledContactPage = styled.main`
   background-color: ${(props) => props.theme.colors.background};
 `;
 
@@ -105,43 +105,38 @@ export default function Contact({ data }) {
         <title>Shivam Joshi | Contact Me</title>
       </Head>
       <Navigation nav={data.nav} />
-      <main>
-        <StyledContactPage ref={el}>
-          <StyledContactContainer>
-            <header>
-              <h1 className="contact-heading">CONTACT ME</h1>
-            </header>
-            <StyledContactInfoGrid>
-              <StyledContactOptions>
-                <p className="contact-option">
-                  Email me at <br />
-                  <a
-                    className="contact-option"
-                    href="mailto:shiv@shivjoshi.com"
-                  >
-                    hello@shivamjoshi.com
-                  </a>
-                </p>
-                <p className="contact-option">
-                  Check out my <br />
-                  <a
-                    className="contact-option"
-                    href={data.contact[0].resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    resume
-                  </a>
-                </p>
-              </StyledContactOptions>
-              <StyledContactFormWrapper className="contact-option">
-                <p>Or, get in touch here:</p>
-                <ContactForm />
-              </StyledContactFormWrapper>
-            </StyledContactInfoGrid>
-          </StyledContactContainer>
-        </StyledContactPage>
-      </main>
+      <StyledContactPage ref={el}>
+        <StyledContactContainer>
+          <header>
+            <h1 className="contact-heading">CONTACT ME</h1>
+          </header>
+          <StyledContactInfoGrid>
+            <StyledContactOptions>
+              <p className="contact-option">
+                Email me at <br />
+                <a className="contact-option" href="mailto:shiv@shivjoshi.com">
+                  hello@shivamjoshi.com
+                </a>
+              </p>
+              <p className="contact-option">
+                Check out my <br />
+                <a
+                  className="contact-option"
+                  href={data.contact[0].resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  resume
+                </a>
+              </p>
+            </StyledContactOptions>
+            <StyledContactFormWrapper className="contact-option">
+              <p>Or, get in touch here:</p>
+              <ContactForm />
+            </StyledContactFormWrapper>
+          </StyledContactInfoGrid>
+        </StyledContactContainer>
+      </StyledContactPage>
       <Footer nav={data.nav} />
     </>
   );

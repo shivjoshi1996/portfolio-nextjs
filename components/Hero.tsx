@@ -63,7 +63,16 @@ const StyledHeroButtons = styled.div`
   opacity: 0;
 `;
 
-export default function Hero({ heroHeading, heroText, heroButtons }) {
+interface HeroProps {
+  heroHeading: string;
+  heroText: string;
+  heroButtons: {
+    buttonText: string;
+    buttonLink: string;
+  }[];
+}
+
+export default function Hero({ heroHeading, heroText, heroButtons }: HeroProps) {
   const el = useRef();
   const heroTl = useRef();
 
