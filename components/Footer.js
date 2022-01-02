@@ -144,7 +144,7 @@ export default function Footer({ nav }) {
             </li>
           </StyledSocialLinks>
           <StyledCopyright>
-            &copy;2021 -{' '}
+            &copy;2022 -{' '}
             <a
               target="_blank"
               rel="noopener noreferrer"
