@@ -28,6 +28,7 @@ const StyledContactForm = styled.form`
     height: 100px;
     border: none;
     border-bottom: 1px solid white;
+    font-family: ${(props) => props.theme.font};
     background-color: ${(props) => props.theme.colors.background};
     resize: none;
     font-size: 1rem;
