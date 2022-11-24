@@ -26,7 +26,6 @@ const MobileNavigationContainer = styled.div`
 
 const NavigationLogo = styled.div`
   padding: 1rem 0rem;
-  opacity: 0;
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textPrimary};
@@ -184,62 +183,9 @@ export default function Navigation({ nav }) {
     setIsOpen(!isOpen);
   };
 
-  const el = useRef();
-  const navbarTl = useRef();
-
-  useEffect(() => {
-    const q = gsap.utils.selector(el);
-    navbarTl.current = gsap
-      .timeline()
-      .fromTo(
-        q('.logo'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.hamburger'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      );
-  }, []);
-
-  const navLinksTl = useRef();
-
-  useLayoutEffect(() => {
-    const q = gsap.utils.selector(el);
-    if (isOpen) {
-      navLinksTl.current = gsap
-        .timeline()
-        .to(q('.navlink'), {
-          opacity: 1,
-          duration: 0.3,
-          stagger: 0.3,
-        })
-        .to(q('.social-link'), {
-          opacity: 1,
-          duration: 0.3,
-          stagger: 0.2,
-        });
-    }
-  }, [isOpen]);
-
   return (
     <>
-      <NavigationContainer role="navigation" aria-label="Main Menu" ref={el}>
+      <NavigationContainer role="navigation" aria-label="Main Menu">
         <MobileNavigationContainer>
           <NavigationLogo className="logo">
             <Link href="/">{nav[0].title}</Link>
