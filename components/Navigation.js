@@ -117,7 +117,6 @@ const MobileNavLinks = styled.ul`
     padding: 1rem 0rem;
     list-style: none;
     max-width: 69.375rem;
-    opacity: 0;
   }
   a {
     text-decoration: none;
@@ -146,10 +145,6 @@ const StyledSocialLinks = styled.ul`
   @media (min-width: 48rem) {
     margin-top: 4rem;
     gap: 5rem;
-  }
-
-  li {
-    opacity: 0;
   }
 
   a {
