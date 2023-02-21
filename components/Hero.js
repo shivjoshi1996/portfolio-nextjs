@@ -75,11 +75,9 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
         q('.hero-heading'),
         {
           opacity: 0,
-          y: 20,
         },
         {
           opacity: 1,
-          y: 0,
           duration: 0.5,
           delay: 0.8,
           ease: 'power1.easeOut',
@@ -89,11 +87,9 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
         q('.hero-text'),
         {
           opacity: 0,
-          y: 20,
         },
         {
           opacity: 1,
-          y: 0,
           duration: 0.5,
           ease: 'power1.easeOut',
         }
@@ -102,11 +98,10 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
         q('.hero-button'),
         {
           opacity: 0,
-          y: 20,
         },
         {
           opacity: 1,
-          y: 0,
+
           duration: 0.5,
           ease: 'power1.easeOut',
         }

@@ -140,6 +140,14 @@ const StyledProjectBodyContent = styled.section`
     margin-bottom: 1rem;
   }
 
+  h4 {
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
   p {
     margin-bottom: 1rem;
     @media (min-width: 48rem) {

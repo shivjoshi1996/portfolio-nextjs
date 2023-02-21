@@ -8,7 +8,8 @@ const appTheme = {
     textPrimary: '#ddd;',
     textHover: '#999999;',
   },
-  font: `'Archivo', sans-serif`,
+  font: `'Inter', sans-serif`,
+  secondaryFont: `'Newsreader', serif`,
 };
 
 export default function Page({ children }) {
