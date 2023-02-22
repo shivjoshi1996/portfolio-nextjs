@@ -23,6 +23,7 @@ const StyledThemeButton = styled.button`
   padding: 0;
   height: 2.5rem;
   width: 2.5rem;
+  color: var(--text);
 
   transform: ${(props) =>
     props.current ? 'translate(100%, 120%)' : 'translate(0, 0)'};
@@ -59,7 +60,7 @@ export default function ThemeToggle() {
           type="button"
           onClick={() => setTheme('light')}
         >
-          <SunIcon />
+          <SunIcon className="toggle-icon" />
         </StyledThemeButton>
         <StyledThemeButton
           aria-label="Toggle Dark Mode"
@@ -67,7 +68,7 @@ export default function ThemeToggle() {
           type="button"
           onClick={() => setTheme('dark')}
         >
-          <MoonIcon />
+          <MoonIcon className="toggle-icon" />
         </StyledThemeButton>
       </StyledThemeToggle>
     </>
