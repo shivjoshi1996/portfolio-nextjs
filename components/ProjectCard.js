@@ -72,7 +72,6 @@ const StyledRoles = styled.p`
   opacity: 0;
   text-align: right;
   font-size: 0.8rem;
-  text-transform: uppercase;
 `;
 
 const StyledTagline = styled.p`

@@ -15,7 +15,6 @@ const StyledAboutWrapper = styled.div`
 
   h2 {
     margin-bottom: 1rem;
-    text-transform: uppercase;
   }
 
   p {

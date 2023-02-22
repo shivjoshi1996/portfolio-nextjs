@@ -57,7 +57,6 @@ const StyledLogo = styled.div`
 
 const StyledNavigationLinks = styled.ul`
   display: flex;
-  text-transform: uppercase;
   gap: 1rem;
 
   @media (min-width: 48rem) {

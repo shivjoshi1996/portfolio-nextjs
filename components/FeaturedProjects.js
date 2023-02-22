@@ -20,7 +20,6 @@ const StyledHeading = styled.div`
   max-width: 69.375rem;
 
   h2 {
-    text-transform: uppercase;
     margin-bottom: 2rem;
   }
 `;
@@ -42,7 +41,6 @@ const StyledViewAllLink = styled.div`
   text-align: center;
   a {
     text-decoration: none;
-    text-transform: uppercase;
     color: var(--text);
     text-align: center;
     transition: 0.5s;

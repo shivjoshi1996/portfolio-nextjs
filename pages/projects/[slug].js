@@ -111,7 +111,6 @@ const StyledProjectLinks = styled.div`
     padding: 0.8rem;
     border: 1px solid var(--text);
     margin-bottom: 2rem;
-    text-transform: uppercase;
 
     &:hover {
       background-color: var(--text);
@@ -132,16 +131,13 @@ const StyledProjectBodyContent = styled.section`
 
   h2 {
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
   }
   h3 {
-    text-transform: uppercase;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
 
   h4 {
-    text-transform: uppercase;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-size: 1.2rem;

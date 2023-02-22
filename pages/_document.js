@@ -43,7 +43,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:ital,opsz@1,6..72&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;&family=Newsreader:ital,opsz@1,6..72&display=swap"
             rel="stylesheet"
           />
         </Head>

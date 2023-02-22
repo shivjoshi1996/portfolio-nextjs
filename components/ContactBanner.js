@@ -16,7 +16,6 @@ const StyledContactBannerGrid = styled.div`
   max-width: 69.375rem;
 
   h2 {
-    text-transform: uppercase;
     margin-bottom: 1rem;
   }
 

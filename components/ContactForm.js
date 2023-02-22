@@ -5,7 +5,6 @@ const StyledContactForm = styled.form`
   flex-direction: column;
 
   label {
-    text-transform: uppercase;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
@@ -47,7 +46,7 @@ const StyledSubmitWrapper = styled.div`
     font-size: 1.2rem;
     cursor: pointer;
     color: var(--text);
-    text-transform: uppercase;
+
     transition: 0.5s;
 
     &:hover {

@@ -30,6 +30,7 @@ const NavigationLogo = styled.div`
     text-decoration: none;
     color: var(--text);
     font-size: 1.2rem;
+    font-weight: 700;
 
     &:hover {
       color: ${(props) => props.theme.colors.textHover};
@@ -125,7 +126,7 @@ const MobileNavLinks = styled.ul`
   }
   a {
     text-decoration: none;
-    text-transform: uppercase;
+
     color: var(--text);
     border-bottom: 2px solid var(--text);
     font-size: 2rem;

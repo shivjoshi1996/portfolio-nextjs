@@ -26,7 +26,6 @@ const StyledHeadingContainer = styled.header`
   margin-bottom: 3rem;
 
   h1 {
-    text-transform: uppercase;
     margin-bottom: 1rem;
     opacity: 0;
   }

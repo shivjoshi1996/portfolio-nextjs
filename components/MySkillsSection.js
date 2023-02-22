@@ -18,7 +18,7 @@ const StyledMySkillsSection = styled.section`
   }
   h2 {
     opacity: 0;
-    text-transform: uppercase;
+
     margin-bottom: 1.5rem;
   }
   p {
@@ -32,7 +32,6 @@ const StyledMySkillsSection = styled.section`
   }
   h3 {
     opacity: 0;
-    text-transform: uppercase;
     margin-bottom: 1rem;
 
     @media (min-width: 48rem) {
