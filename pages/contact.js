@@ -10,7 +10,7 @@ import Navigation from '../components/Navigation';
 import { getClient } from '../lib/sanity.server';
 
 const StyledContactPage = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
 `;
 
 const StyledContactContainer = styled.div`
@@ -48,7 +48,7 @@ const StyledContactOptions = styled.section`
   }
   a {
     font-size: inherit;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
 
     transition: 0.5s;
 

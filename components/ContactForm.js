@@ -14,12 +14,12 @@ const StyledContactForm = styled.form`
   input[type='email'] {
     width: 100%;
     height: 30px;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: var(--background);
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--text);
     margin-bottom: 1.5rem;
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
   }
 
   textarea {
@@ -27,12 +27,12 @@ const StyledContactForm = styled.form`
     width: 100%;
     height: 100px;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--text);
     font-family: ${(props) => props.theme.font};
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: var(--background);
     resize: none;
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
   }
 `;
 
@@ -41,18 +41,18 @@ const StyledSubmitWrapper = styled.div`
   margin-top: 3rem;
 
   input[type='submit'] {
-    background-color: ${(props) => props.theme.colors.background};
-    border: 1px solid ${(props) => props.theme.colors.textPrimary};
+    background-color: var(--background);
+    border: 1px solid var(--text);
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
     cursor: pointer;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     text-transform: uppercase;
     transition: 0.5s;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.textPrimary};
-      color: ${(props) => props.theme.colors.background};
+      background-color: var(--text);
+      color: var(--background);
     }
   }
 `;

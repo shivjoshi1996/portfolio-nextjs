@@ -27,7 +27,7 @@ const StyledProjectDateWrapper = styled.div`
   }
 
   .datedivider {
-    background-color: ${(props) => props.theme.colors.textPrimary};
+    background-color: var(--text);
     height: 1px;
     width: 100%;
   }
@@ -38,7 +38,7 @@ const StyledProjectInfoWrapper = styled.div`
   margin-bottom: 0.5rem;
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     cursor: pointer;
     font-weight: bold;
 

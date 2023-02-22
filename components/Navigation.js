@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import gsap from 'gsap';
 import PropTypes from 'prop-types';
+import ThemeToggle from './ThemeToggle';
 
 const NavigationContainer = styled.nav`
-  background-color: ${(props) => props.theme.colors.background};
-  border-bottom: 1px solid ${(props) => props.theme.colors.textPrimary};
-  color: ${(props) => props.theme.colors.textPrimary};
+  background-color: var(--background);
+  border-bottom: 1px solid var(--text);
+  color: var(--text);
   position: fixed;
   width: 100%;
   z-index: 99;
@@ -28,7 +28,7 @@ const NavigationLogo = styled.div`
   padding: 1rem 0rem;
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     font-size: 1.2rem;
 
     &:hover {
@@ -42,6 +42,11 @@ const NavigationLogo = styled.div`
       font-size: 1.7rem;
     }
   }
+`;
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  gap: 2rem;
 `;
 
 const NavigationHamburger = styled.div`
@@ -69,7 +74,7 @@ const NavigationHamburger = styled.div`
     }
 
     display: block;
-    fill: ${(props) => props.theme.colors.textPrimary};
+    fill: var(--text);
     #rect1,
     #rect2,
     #rect3 {
@@ -95,8 +100,8 @@ const MobileDrawerContainer = styled.div`
   width: 100vw;
   height: 90vh;
 
-  background-color: ${(props) => props.theme.colors.background};
-  color: ${(props) => props.theme.colors.textPrimary};
+  background-color: var(--background);
+  color: var(--text);
   opacity: ${(props) => props.mobileDrawerOpacity};
   transform: translateX(${(props) => props.mobileDrawerPosition});
   visibility: ${(props) => props.visibility};
@@ -121,8 +126,8 @@ const MobileNavLinks = styled.ul`
   a {
     text-decoration: none;
     text-transform: uppercase;
-    color: ${(props) => props.theme.colors.textPrimary};
-    border-bottom: 2px solid ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
+    border-bottom: 2px solid var(--text);
     font-size: 2rem;
     transition: 0.3s;
 
@@ -149,7 +154,7 @@ const StyledSocialLinks = styled.ul`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
   }
 
   svg {
@@ -168,7 +173,7 @@ const StyledSocialLinks = styled.ul`
 
 const NavigationPagePadding = styled.div`
   padding-bottom: 10vh;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
 `;
 
 export default function Navigation({ nav }) {
@@ -185,46 +190,49 @@ export default function Navigation({ nav }) {
           <NavigationLogo className="logo">
             <Link href="/">{nav[0].title}</Link>
           </NavigationLogo>
-          <NavigationHamburger className="hamburger" isOpen={isOpen}>
-            <button
-              type="button"
-              aria-expanded={isOpen ? 'true' : 'false'}
-              aria-controls="main-menu"
-              onClick={handleHamburgerClick}
-              aria-label="Open Menu"
-            >
-              <svg
-                viewBox="0 0 50 30"
-                width="50"
-                height="30"
-                fill="%23ddd"
-                aria-hidden="true"
+          <StyledButtonWrapper>
+            <ThemeToggle />
+            <NavigationHamburger className="hamburger" isOpen={isOpen}>
+              <button
+                type="button"
+                aria-expanded={isOpen ? 'true' : 'false'}
+                aria-controls="main-menu"
+                onClick={handleHamburgerClick}
+                aria-label="Open Menu"
               >
-                <rect
-                  id="rect1"
-                  width="100%"
-                  height="20%"
-                  y={isOpen ? '20%' : '0'}
+                <svg
+                  viewBox="0 0 50 30"
+                  width="50"
+                  height="30"
                   fill="%23ddd"
-                />
-                <rect
-                  id="rect2"
-                  y="40%"
-                  width="55%"
-                  height="20%"
-                  fillOpacity={isOpen ? '0.0' : null}
-                  fill="%23ddd"
-                />
-                <rect
-                  id="rect3"
-                  y={isOpen ? '60%' : '80%'}
-                  width={isOpen ? '100%' : '32%'}
-                  height="20%"
-                  fill="%23ddd"
-                />
-              </svg>
-            </button>
-          </NavigationHamburger>
+                  aria-hidden="true"
+                >
+                  <rect
+                    id="rect1"
+                    width="100%"
+                    height="20%"
+                    y={isOpen ? '20%' : '0'}
+                    fill="%23ddd"
+                  />
+                  <rect
+                    id="rect2"
+                    y="40%"
+                    width="55%"
+                    height="20%"
+                    fillOpacity={isOpen ? '0.0' : null}
+                    fill="%23ddd"
+                  />
+                  <rect
+                    id="rect3"
+                    y={isOpen ? '60%' : '80%'}
+                    width={isOpen ? '100%' : '32%'}
+                    height="20%"
+                    fill="%23ddd"
+                  />
+                </svg>
+              </button>
+            </NavigationHamburger>
+          </StyledButtonWrapper>
         </MobileNavigationContainer>
         <MobileDrawerContainer
           mobileDrawerOpacity={isOpen ? '1' : '0'}

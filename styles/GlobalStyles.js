@@ -62,7 +62,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     font-family: ${(props) => props.theme.font};
-    color: ${(props) => props.theme.colors.textPrimary};
+    color:  var(--text);
     scroll-behaviour: smooth;
   }
 

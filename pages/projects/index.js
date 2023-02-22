@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const StyledProjectsContainer = styled.div`
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
 `;
 
 const StyledHeadingContainer = styled.header`

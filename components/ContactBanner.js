@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const StyledContactBannerContainer = styled.aside`
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
   padding: 5rem 0;
 
   @media (min-width: 48rem) {
@@ -21,7 +21,7 @@ const StyledContactBannerGrid = styled.div`
   }
 
   a {
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     transition: 0.5s;
 
     &:hover {
