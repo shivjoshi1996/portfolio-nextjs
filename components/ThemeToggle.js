@@ -14,6 +14,7 @@ const StyledThemeToggle = styled.div`
 `;
 
 const StyledThemeButton = styled.button`
+  all: unset;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -23,6 +24,7 @@ const StyledThemeButton = styled.button`
   padding: 0;
   height: 2.5rem;
   width: 2.5rem;
+  color: var(--text);
 
   transform: ${(props) =>
     props.current ? 'translate(100%, 120%)' : 'translate(0, 0)'};
@@ -36,6 +38,7 @@ const StyledThemeButton = styled.button`
   }
 
   svg {
+    fill: var(--text);
     display: block;
     width: 100%;
     height: 100%;
@@ -59,7 +62,7 @@ export default function ThemeToggle() {
           type="button"
           onClick={() => setTheme('light')}
         >
-          <SunIcon />
+          <SunIcon className="toggle-icon" />
         </StyledThemeButton>
         <StyledThemeButton
           aria-label="Toggle Dark Mode"
@@ -67,7 +70,7 @@ export default function ThemeToggle() {
           type="button"
           onClick={() => setTheme('dark')}
         >
-          <MoonIcon />
+          <MoonIcon className="toggle-icon" />
         </StyledThemeButton>
       </StyledThemeToggle>
     </>
