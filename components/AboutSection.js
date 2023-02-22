@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 
 const StyledAboutSection = styled.section`
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
   padding: 2rem 0rem;
 `;
 
@@ -35,7 +35,7 @@ const StyledAboutGrid = styled.div`
 const StyledParagraphWrapper = styled.div`
   @media (min-width: 69.375rem) {
     padding-left: 1rem;
-    border-left: 1px solid ${(props) => props.theme.colors.textPrimary};
+    border-left: 1px solid var(--text);
   }
 `;
 

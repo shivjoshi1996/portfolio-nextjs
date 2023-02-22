@@ -14,7 +14,7 @@ const NavQuery = groq`
 
 const StyledSuccessContainer = styled.div`
   min-height: 80vh;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
 `;
 
 const StyledSuccessWrapper = styled.div`

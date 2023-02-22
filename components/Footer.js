@@ -4,14 +4,14 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 const StyledFooter = styled.footer`
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
   padding: 2rem 0;
-  border-top: 1px solid ${(props) => props.theme.colors.textPrimary};
+  border-top: 1px solid var(--text);
 `;
 
 const StyledContentContainer = styled.div`
   a {
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
 
     transition: 0.5s;
 

@@ -5,8 +5,8 @@ import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 
 const StyledHeroWrapper = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
-  border-bottom: 1 px solid ${(props) => props.theme.colors.textPrimary};
+  background-color: var(--background);
+  border-bottom: 1 px solid var(--text);
 `;
 
 const StyledHero = styled.div`
@@ -22,7 +22,7 @@ const StyledHero = styled.div`
 
 const StyledHeroText = styled.div`
   flex: 1;
-  color: ${(props) => props.theme.colors.textPrimary};
+  color: var(--text);
   h1 {
     opacity: 0;
     margin-bottom: 1rem;
@@ -45,13 +45,13 @@ const StyledHeroText = styled.div`
   a {
     text-decoration: none;
     text-transform: uppercase;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     padding: 0.8em;
-    border: 2px solid ${(props) => props.theme.colors.textPrimary};
+    border: 2px solid var(--text);
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.textPrimary};
-      color: ${(props) => props.theme.colors.background};
+      background-color: var(--text);
+      color: var(--background);
       transition: 0.5s;
     }
   }

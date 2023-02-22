@@ -1,6 +1,20 @@
 /* eslint-disable react/prop-types */
 import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
+import { createGlobalStyle } from 'styled-components';
 import Page from '../components/Page';
+
+const GlobalStyle = createGlobalStyle`
+:root {
+  --background: #1d1d1d;
+  --text: #ddd;
+}
+
+[data-theme="light"] {
+  --background: #fff;
+  --text: #3a3a3a;
+}
+`;
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -32,9 +46,12 @@ function MyApp({ Component, pageProps }) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="theme-color" content="#1d1d1d" />
       </Head>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
+      <GlobalStyle />
+      <ThemeProvider defaultTheme="dark" enableSystem>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </ThemeProvider>
     </>
   );
 }

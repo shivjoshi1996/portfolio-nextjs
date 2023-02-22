@@ -14,7 +14,7 @@ import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 
 const ProjectSection = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: var(--background);
   padding-bottom: 2rem;
 
   p {
@@ -30,7 +30,7 @@ const StyledViewAllProjectsLink = styled.div`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 0.2rem;
@@ -107,15 +107,15 @@ const StyledProjectLinks = styled.div`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     padding: 0.8rem;
-    border: 1px solid ${(props) => props.theme.colors.textPrimary};
+    border: 1px solid var(--text);
     margin-bottom: 2rem;
     text-transform: uppercase;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.textPrimary};
-      color: ${(props) => props.theme.colors.background};
+      background-color: var(--text);
+      color: var(--background);
       transition: 0.5s;
     }
 
@@ -167,7 +167,7 @@ const StyledProjectBodyContent = styled.section`
     }
   }
   a {
-    color: ${(props) => props.theme.colors.textPrimary};
+    color: var(--text);
     transition: 0.5s;
 
     &:hover {
