@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
 
 const StyledHeroWrapper = styled.div`
   background-color: var(--background);
@@ -24,7 +22,6 @@ const StyledHeroText = styled.div`
   flex: 1;
   color: var(--text);
   h1 {
-    opacity: 0;
     margin-bottom: 1rem;
     @media (min-width: 48rem) {
       margin-bottom: 2rem;
@@ -32,7 +29,6 @@ const StyledHeroText = styled.div`
     }
   }
   p {
-    opacity: 0;
     line-height: 1.7;
     margin-bottom: 1rem;
 
@@ -44,7 +40,6 @@ const StyledHeroText = styled.div`
 
   a {
     text-decoration: none;
-    text-transform: uppercase;
     color: var(--text);
     padding: 0.8em;
     border: 2px solid var(--text);
@@ -60,56 +55,11 @@ const StyledHeroText = styled.div`
 const StyledHeroButtons = styled.div`
   display: flex;
   gap: 1rem;
-  opacity: 0;
 `;
 
 export default function Hero({ heroHeading, heroText, heroButtons }) {
-  const el = useRef();
-  const heroTl = useRef();
-
-  useEffect(() => {
-    const q = gsap.utils.selector(el);
-    heroTl.current = gsap
-      .timeline()
-      .fromTo(
-        q('.hero-heading'),
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          duration: 0.5,
-          delay: 0.8,
-          ease: 'power1.easeOut',
-        }
-      )
-      .fromTo(
-        q('.hero-text'),
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          duration: 0.5,
-          ease: 'power1.easeOut',
-        }
-      )
-      .fromTo(
-        q('.hero-button'),
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-
-          duration: 0.5,
-          ease: 'power1.easeOut',
-        }
-      );
-  }, []);
-
   return (
-    <StyledHeroWrapper ref={el}>
+    <StyledHeroWrapper>
       <StyledHero>
         <StyledHeroText>
           <h1 className="hero-heading">{heroHeading}</h1>

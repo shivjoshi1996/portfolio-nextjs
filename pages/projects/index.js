@@ -27,12 +27,10 @@ const StyledHeadingContainer = styled.header`
 
   h1 {
     margin-bottom: 1rem;
-    opacity: 0;
   }
 
   p {
     line-height: 1.5;
-    opacity: 0;
     @media (min-width: 48rem) {
       width: 50%;
     }
@@ -55,25 +53,13 @@ const StyledProjectsWrapper = styled.div`
 
   @media (min-width: 48rem) {
     > article:nth-child(even) {
-      margin-top: 20rem;
+      margin-top: 15rem;
     }
   }
 `;
 
 export default function Projects({ data }) {
   const { projects, nav } = data;
-
-  // Heading GSAP
-  const headingRef = useRef();
-
-  useLayoutEffect(() => {
-    const headingSelector = gsap.utils.selector(headingRef);
-    gsap.fromTo(
-      headingSelector('.project-heading'),
-      { opacity: 0, y: 20 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power1.easeOut', stagger: 0.5 }
-    );
-  }, []);
 
   // PROJECT CARDS GSAP
 
@@ -113,54 +99,6 @@ export default function Projects({ data }) {
             width: '100%',
             duration: 0.5,
           }
-        )
-        .fromTo(
-          q('.project-name'),
-          {
-            opacity: 0,
-            y: 20,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
-        )
-        .fromTo(
-          q('.project-image'),
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
-        )
-        .fromTo(
-          q('.project-roles'),
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
-        )
-        .fromTo(
-          q('.project-tagline'),
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
         );
     });
   }, []);
@@ -173,7 +111,7 @@ export default function Projects({ data }) {
       <Navigation nav={nav} />
       <main>
         <StyledProjectsContainer>
-          <StyledHeadingContainer ref={headingRef}>
+          <StyledHeadingContainer>
             <h1 className="project-heading">Projects</h1>
             <p className="project-heading">
               Explore some of the projects I've helped manage and develop, as
