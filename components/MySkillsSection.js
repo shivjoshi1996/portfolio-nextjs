@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import PropTypes from 'prop-types';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const StyledMySkillsSection = styled.section`
   background-color: var(--background);
@@ -17,12 +12,9 @@ const StyledMySkillsSection = styled.section`
     margin-bottom: 0.5rem;
   }
   h2 {
-    opacity: 0;
-
     margin-bottom: 1.5rem;
   }
   p {
-    opacity: 0;
     margin-bottom: 1rem;
     line-height: 1.5;
 
@@ -31,7 +23,6 @@ const StyledMySkillsSection = styled.section`
     }
   }
   h3 {
-    opacity: 0;
     margin-bottom: 1rem;
 
     @media (min-width: 48rem) {
@@ -87,96 +78,9 @@ export default function MySkillsSection({
 }) {
   // TODO - Split technology into seperate component
 
-  const el = useRef();
-  const skillsTl = useRef();
-
-  useEffect(() => {
-    const q = gsap.utils.selector(el);
-    skillsTl.current = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.skills-section',
-        },
-      })
-      .fromTo(
-        q('.skills-heading'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.skills-subheading'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.skills-development-heading'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.skills-development'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.2,
-        }
-      )
-      .fromTo(
-        q('.skills-management-heading'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.skills-management'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.2,
-        }
-      );
-  }, []);
-
   return (
     <StyledMySkillsSection>
-      <StyledMySkillsWrapper className="skills-section" ref={el}>
+      <StyledMySkillsWrapper className="skills-section">
         <h2 className="skills-heading">My Skills</h2>
         <p className="skills-subheading">
           Through my studies and work experience, I've gained a solid

@@ -34,7 +34,6 @@ const StyledProjectDateWrapper = styled.div`
 `;
 
 const StyledProjectInfoWrapper = styled.div`
-  opacity: 0;
   margin-bottom: 0.5rem;
   a {
     text-decoration: none;
@@ -69,13 +68,11 @@ const StyledImage = styled.div`
 `;
 
 const StyledRoles = styled.p`
-  opacity: 0;
   text-align: right;
   font-size: 0.8rem;
 `;
 
 const StyledTagline = styled.p`
-  opacity: 0;
   margin-top: 1rem;
   line-height: 1.2;
 `;
