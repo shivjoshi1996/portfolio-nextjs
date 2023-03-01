@@ -66,6 +66,7 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
           <h1 className="hero-heading">{heroHeading}</h1>
           <p className="hero-text">{heroText}</p>
           <StyledHeroButtons className="hero-button">
+            <Button>Test</Button>
             {heroButtons.map((button) => (
               <Link key={button._key} href={button.navItemUrl.linkUrl}>
                 {button.text}

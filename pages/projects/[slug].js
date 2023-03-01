@@ -4,6 +4,7 @@ import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { BiArrowBack } from 'react-icons/bi';
+import { BsArrowUpRightSquare } from 'react-icons/bs';
 import BlockContent from '@sanity/block-content-to-react';
 import { useNextSanityImage } from 'next-sanity-image';
 import Img from 'next/image';
@@ -11,6 +12,7 @@ import Head from 'next/head';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import Button from '../../components/Button';
 
 const ProjectSection = styled.div`
   background-color: var(--background);
@@ -28,17 +30,7 @@ const StyledViewAllProjectsLink = styled.div`
   max-width: 69.375rem;
 
   a {
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-
-    transition: 0.5s;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.textHover};
-    }
+    width: fit-content;
   }
 `;
 
@@ -98,27 +90,11 @@ const StyledProjectLinks = styled.div`
   margin: 0 auto;
   display: flex;
   gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   @media (min-width: 48rem) {
     width: 100%;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--text);
-    padding: 0.8rem;
-    border: 1px solid var(--text);
-    margin-bottom: 2rem;
-
-    &:hover {
-      background-color: var(--text);
-      color: var(--background);
-      transition: 0.5s;
-    }
-
-    @media (min-width: 48rem) {
-      margin-bottom: unset;
-    }
   }
 `;
 
@@ -126,6 +102,11 @@ const StyledProjectBodyContent = styled.section`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
+  background-color: var(--section-background);
+  padding: 4rem 4rem;
+  border-radius: 2px;
+  border: 1px solid hsl(0 0% 100% / 0.026);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 
   h2 {
     margin-bottom: 1.5rem;
@@ -185,7 +166,8 @@ const ProjectInfoWrapper = styled.section`
 
   h2 {
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: hsl(0 0% 62.8%);
   }
 `;
 
@@ -237,10 +219,10 @@ export default function Project({ project, nav }) {
           <ProjectSection>
             <StyledViewAllProjectsLink>
               <Link href="/projects" passHref>
-                <a className="all-projects-link">
+                <Button as="a" href="/projects">
                   <BiArrowBack />
                   View All Projects
-                </a>
+                </Button>
               </Link>
             </StyledViewAllProjectsLink>
             <article>
@@ -256,13 +238,15 @@ export default function Project({ project, nav }) {
 
                   <StyledProjectLinks>
                     {project?.liveSiteUrl && (
-                      <a
+                      <Button
+                        as="a"
                         href={project.liveSiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         View Live Site
-                      </a>
+                        <BsArrowUpRightSquare />
+                      </Button>
                     )}
                     {project?.sourceCodeUrl && (
                       <a

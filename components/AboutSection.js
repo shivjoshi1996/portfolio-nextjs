@@ -1,22 +1,31 @@
 import styled from 'styled-components';
 
 const StyledAboutSection = styled.section`
-  background-color: var(--background);
   padding: 2rem 0rem;
+  background-color: var(--background);
 `;
 
 const StyledAboutWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 69.375rem;
+  background-color: var(--section-background);
+  padding: 2rem 2rem;
+  border-radius: 2px;
+  border: 1px solid hsl(0 0% 100% / 0.026);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 
   h2 {
     margin-bottom: 1rem;
+    color: var(--text);
+    font-size: 22px;
   }
 
   p {
     line-height: 1.5;
     margin-bottom: 1rem;
+    color: var(--text);
+    font-size: 16px;
   }
 `;
 
