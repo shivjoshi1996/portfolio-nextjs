@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
+import Button from './Button';
 
 const StyledHeroWrapper = styled.div`
   background-color: var(--background);
@@ -121,6 +122,7 @@ export default function Hero({ heroHeading, heroText, heroButtons }) {
               </Link>
             ))}
           </StyledHeroButtons>
+          <Button>Projects</Button>
         </StyledHeroText>
       </StyledHero>
     </StyledHeroWrapper>
