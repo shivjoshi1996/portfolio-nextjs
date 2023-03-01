@@ -1,8 +1,6 @@
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Head from 'next/head';
-import gsap from 'gsap';
-import { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
@@ -65,40 +63,6 @@ const StyledContactFormWrapper = styled.section`
 `;
 
 export default function Contact({ data }) {
-  const el = useRef();
-  const contactTl = useRef();
-
-  useLayoutEffect(() => {
-    const q = gsap.utils.selector(el);
-    contactTl.current = gsap
-      .timeline()
-      .fromTo(
-        q('.contact-heading'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.contact-option'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.5,
-        }
-      );
-  }, []);
-
   return (
     <>
       <Head>
@@ -106,7 +70,7 @@ export default function Contact({ data }) {
       </Head>
       <Navigation nav={data.nav} />
       <main>
-        <StyledContactPage ref={el}>
+        <StyledContactPage>
           <StyledContactContainer>
             <header>
               <h1 className="contact-heading">CONTACT ME</h1>

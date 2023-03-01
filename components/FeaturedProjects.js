@@ -59,25 +59,6 @@ const StyledViewAllLink = styled.div`
 export default function FeaturedProjects({ featuredProjects }) {
   const el = useRef();
   const projectCardTl = useRef();
-  const featuredHeading = useRef();
-
-  useEffect(() => {
-    gsap.fromTo(
-      featuredHeading.current,
-      {
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: featuredHeading.current,
-        },
-      }
-    );
-  });
 
   // PROJECT CARDS ANIMATION
 
@@ -115,61 +96,13 @@ export default function FeaturedProjects({ featuredProjects }) {
             width: '100%',
             duration: 0.5,
           }
-        )
-        .fromTo(
-          q('.project-name'),
-          {
-            opacity: 0,
-            y: 20,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
-        )
-        .fromTo(
-          q('.project-image'),
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
-        )
-        .fromTo(
-          q('.project-roles'),
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
-        )
-        .fromTo(
-          q('.project-tagline'),
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          }
         );
     });
   }, []);
   return (
     <StyledFeaturedProjectsContainer>
       <StyledHeading>
-        <h2 ref={featuredHeading}>Featured Projects</h2>
+        <h2>Featured Projects</h2>
       </StyledHeading>
       <StyledFeaturedProjectsWrapper ref={el}>
         {featuredProjects.map((project) => (

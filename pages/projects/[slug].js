@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useLayoutEffect, useRef } from 'react';
+import React from 'react';
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -8,7 +8,6 @@ import BlockContent from '@sanity/block-content-to-react';
 import { useNextSanityImage } from 'next-sanity-image';
 import Img from 'next/image';
 import Head from 'next/head';
-import gsap from 'gsap';
 import client from '../../lib/client';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
@@ -34,7 +33,6 @@ const StyledViewAllProjectsLink = styled.div`
     display: flex;
     align-items: center;
     gap: 0.2rem;
-    opacity: 0;
 
     transition: 0.5s;
 
@@ -228,91 +226,6 @@ export default function Project({ project, nav }) {
     projectScreenshot || mainImage
   );
 
-  const el = useRef();
-  const projectTl = useRef();
-
-  useLayoutEffect(() => {
-    const q = gsap.utils.selector(el);
-    projectTl.current = gsap
-      .timeline()
-      .fromTo(
-        q('.all-projects-link'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          delay: 0.5,
-        }
-      )
-      .fromTo(
-        q('.hero-info'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        q('.project-date'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.3,
-          stagger: 0.2,
-        }
-      )
-      .fromTo(
-        q('.project-roles'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.3,
-          stagger: 0.2,
-        }
-      )
-      .fromTo(
-        q('.project-stack'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.3,
-          stagger: 0.2,
-        }
-      )
-      .fromTo(
-        q('.project-body'),
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        }
-      );
-  }, []);
-
   if (nav && project) {
     return (
       <>
@@ -321,7 +234,7 @@ export default function Project({ project, nav }) {
         </Head>
         <Navigation nav={nav} />
         <main>
-          <ProjectSection ref={el}>
+          <ProjectSection>
             <StyledViewAllProjectsLink>
               <Link href="/projects" passHref>
                 <a className="all-projects-link">
