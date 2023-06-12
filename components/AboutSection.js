@@ -61,9 +61,12 @@ export default function AboutSection() {
             <p>
               In February 2021, I left the Aurora team to focus on front-end
               development. I refreshed my knowledge of HTML, CSS & JavaScript,
-              and frameworks such as React, NextJS and Gatsby. I am now looking
-              for a front-end development role, to work on projects that create
-              a lasting impact.
+              and frameworks such as React, NextJS and Gatsby.
+            </p>
+            <p>
+              I am currently working at Xenum Technologies, a start-up based in
+              Vancouver, focusing on building web applications for the video
+              game industry and Web3 space, using React and NextJS.
             </p>
           </StyledParagraphWrapper>
         </StyledAboutGrid>
